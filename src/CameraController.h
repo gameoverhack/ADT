@@ -24,6 +24,8 @@ public:
 	void draw();
 
 	void setVariables();
+	void setBackground();
+	void setLatencyTest();
 
 	inline void processPixels();
 	inline void processTextures();
@@ -37,6 +39,8 @@ private:
 	ofFbo render0, render1;
 
 	ofTexture contourTexture;
+	ofTexture backgroundTexture;
+	ofTexture latencyTexture;
 
 	vector< vector<cv::Point> > contours, tContours;
 	vector<cv::Rect> boundingRects, tBoundingRects;
@@ -45,6 +49,12 @@ private:
 	cv::Mat tPixels;
 	cv::Mat cPixels;
 	cv::Mat bPixels;
+
+	ofColor latencyPixel;
+	int latencyStart, latencyTime;
+
+	bool bBackgroundCaptured;
+	bool bTestLatency;
 
 	int erodeSize;
 	int blurSize;

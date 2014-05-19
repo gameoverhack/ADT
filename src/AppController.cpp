@@ -73,6 +73,9 @@ void AppController::setup(){
 	//appModel->setProperty("Blur", 0 , true, 0, 10);
 	//appModel->setProperty("MinContourSize", 200 , true, 0, 4000);
 	//appModel->setProperty("MaxContourSize", 2000, true, 0, 4000);
+	appModel->setProperty("FrameRate", 50 , true, 1, 100);
+	appModel->setProperty("Shutter", 5.0f, true, 1.0f, 100.0f);
+	appModel->setProperty("Gain", 0.0, true, 0.0f, 20.0f);
     appModel->setProperty("MediaPath", (string)"/Users/gameover/Desktop/LOTE/medianew", true);
     appModel->setProperty("VideoWidth", 1920.0f, true, 0.0f, 1920.0f);
     appModel->setProperty("VideoHeight", 1080.0f, true, 0.0f, 1080.0f);
@@ -139,12 +142,14 @@ void AppController::guiEvent(ofxUIEventArgs &e){
         case OFX_UI_WIDGET_INTSLIDER_H:
             ofxLogVerbose() << "UI event " << name << " (i) slider: " << ((ofxUIIntSlider *)e.widget)->getValue() << endl;
         {
-            
+            if(name == "FrameRate") cameraController->setCameraFrameRate(appModel->getProperty<int>("FrameRate"));
         }
             break;
         case OFX_UI_WIDGET_SLIDER_H:
             ofxLogVerbose() << "UI event " << name << " (f) slider: " << ((ofxUISlider *)e.widget)->getValue() << endl;
         {
+			 if(name == "Gain") cameraController->setCameraGain(appModel->getProperty<float>("Gain"));
+			 if(name == "Shutter") cameraController->setCameraShutter(appModel->getProperty<float>("Shutter"));
             //if(name == "OutputWidth" || name == "OutputHeight") ofSetWindowShape(appModel->getProperty<float>("OutputWidth"), appModel->getProperty<float>("OutputHeight"));
         }
             break;
@@ -254,8 +259,11 @@ void AppController::keyPressed(ofKeyEventArgs & e){
         case 's':
             debugViewStates.toggleState(kDEBUGVIEW_SHOWSTATES);
             break;
-        case 'c':
-            
+        case 'b':
+            cameraController->setBackground();
+            break;
+		case ' ':
+            cameraController->setLatencyTest();
             break;
 	}
     

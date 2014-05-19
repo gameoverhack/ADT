@@ -8,9 +8,9 @@ const GLint tcOffsetColumns = 5;
 const GLint tcOffsetRows    = 5;
 GLfloat	texCoordOffsets[tcOffsetColumns * tcOffsetRows * 2];
  
-// Calculate texture coordinate offsets for kernel convolution effects
-void genTexCoordOffsets(GLuint width, GLuint height, GLfloat step = 1.0f) // Note: Change this step value to increase the number of pixels we sample across...
-{
+//--------------------------------------------------------------
+void genTexCoordOffsets(GLuint width, GLuint height, GLfloat step = 1.0f){
+	// Calculate texture coordinate offsets for kernel convolution effects
 	// Note: You can multiply the step to displace the samples further. Do this with diff values horiz and vert and you have directional blur of a sort...
 	float xInc = step / (GLfloat)(width);
 	float yInc = step / (GLfloat)(height);
@@ -25,6 +25,7 @@ void genTexCoordOffsets(GLuint width, GLuint height, GLfloat step = 1.0f) // Not
 	}
 }
 
+//--------------------------------------------------------------
 inline void glDrawTriangleStrip(float& width, float& height){
 	glBegin(GL_TRIANGLE_STRIP);
 	glTexCoord2f(0, 0);	glVertex2f(0, 0);
@@ -34,8 +35,8 @@ inline void glDrawTriangleStrip(float& width, float& height){
 	glEnd();
 }
 
-struct CompareContourArea
-{
+//--------------------------------------------------------------
+struct CompareContourArea{
 	CompareContourArea(const std::vector<double>& areaVec)
 	: mAreaVec(areaVec) {}
 
@@ -72,11 +73,26 @@ void CameraController::setup(){
 	bShaderOk = blurH.load(ofToDataPath("blur_horizontal"));
 	assert(bShaderOk);
 
+	bTestLatency = bBackgroundCaptured = false;
+
 	setVariables();
 	ofxFlyCapture2::setup();
 	ofxFlyCapture2::setUseOFPixels(false);
 	ofxFlyCapture2::setUseTexture(appModel->getProperty<bool>("ShowCamera"));
+
+	rPixels.create(viewHeight, viewWidth, CV_8U);
+	tPixels.create(viewHeight, viewWidth, CV_8U);
+	cPixels.create(viewHeight, viewWidth, CV_8U);
+	bPixels.create(viewHeight, viewWidth, CV_8U);
+
 	contourTexture.allocate(viewWidth, viewHeight, GL_LUMINANCE);
+	backgroundTexture.allocate(viewWidth, viewHeight, GL_LUMINANCE);
+	latencyTexture.allocate(viewWidth, viewHeight, GL_LUMINANCE);
+
+	cPixels.setTo(255);
+	latencyTexture.loadData(cPixels.data, cPixels.cols, cPixels.rows, GL_LUMINANCE);
+	pixels.allocate(viewHeight, viewWidth, OF_IMAGE_GRAYSCALE);
+
 	render0.allocate(viewWidth, viewHeight);
 	render1.allocate(viewWidth, viewHeight);
 	
@@ -102,22 +118,29 @@ void CameraController::update(){
 void CameraController::draw(){
 
 	ofScopedLock lock(mutex);
+
 	if(bUseTexture){
-		texture.draw(240 * 0, ofGetHeight() - 240, 320, 240);
-		contourTexture.draw(240 * 1, ofGetHeight() - 240, 320, 240);
-		video.draw(240 * 2, ofGetHeight() - 240, 320, 240);
+		texture.draw(320 * 0, ofGetHeight() - 240, 320, 240);
+		backgroundTexture.draw(320 * 1, ofGetHeight() - 240, 320, 240);
+		contourTexture.draw(320 * 2, ofGetHeight() - 240, 320, 240);
+		video.draw(320 * 3, ofGetHeight() - 240, 320, 240);
 	}
-	
+
 	matte.begin();
 	if(!bPixelsDirty) matte.setUniformTexture("contourTexture", (blurSize == 0 ? contourTexture : render1.getTextureReference()), 2);
 	if(video.isFrameNew()) matte.setUniformTexture("videoTexture", video.getTextureReference(), 3);
 	glDrawTriangleStrip(viewWidth, viewHeight);
 	matte.end();
 	
-	if(ofGetFrameNum() % 25 == 0) appModel->setProperty("ProcessTime", (float)frameProcessTime);
+	if(bTestLatency) latencyTexture.draw(0, 0, viewWidth, viewHeight);
+
+	appModel->setProperty("ProcessTime", (float)frameProcessTime);
+
 }
 
+//--------------------------------------------------------------
 void CameraController::setVariables(){
+
 	blurSize = appModel->getProperty<int>("Blur");
 	viewWidth = appModel->getProperty<float>("OutputWidth");
 	viewHeight = appModel->getProperty<float>("OutputHeight");
@@ -125,7 +148,6 @@ void CameraController::setVariables(){
 	minArea = appModel->getProperty<int>("MinContourSize") * appModel->getProperty<int>("MinContourSize") * PI;
 	bUseContour = appModel->getProperty<bool>("UseContour");
 	bUseGPU = appModel->getProperty<bool>("UseGPU");
-	bUseBackground = appModel->getProperty<bool>("UseBackground");
 	bInvertThreshold = appModel->getProperty<bool>("UseInvertThresh");
 	bFindHoles = appModel->getProperty<bool>("UseFindHoles");
 	bApproximateMode = appModel->getProperty<bool>("UseApproxMode");
@@ -133,6 +155,8 @@ void CameraController::setVariables(){
 	smooth	= appModel->getProperty<float>("Smooth");
 	totalPoints = appModel->getProperty<int>("Points");
 	threshold = appModel->getProperty<int>("Threshold");
+	bUseBackground = appModel->getProperty<bool>("UseBackground");
+	
 	if(erodeSize != appModel->getProperty<int>("Erode")){
 		erodeSize = appModel->getProperty<int>("Erode");
 		genTexCoordOffsets(viewWidth, viewHeight, erodeSize);
@@ -144,24 +168,48 @@ void CameraController::setVariables(){
 }
 
 //--------------------------------------------------------------
+void CameraController::setBackground(){
+	ofScopedLock lock(mutex);
+	ofLogNotice() << "Capturing background" << endl;
+	cPixels.data = rawImage.GetData();
+	cPixels.copyTo(bPixels);
+	backgroundTexture.loadData(bPixels.data, bPixels.cols, bPixels.rows, GL_LUMINANCE);
+	bBackgroundCaptured = true;
+}
+
+//--------------------------------------------------------------
+void CameraController::setLatencyTest(){
+	ofScopedLock lock(mutex);
+	latencyStart = ofGetElapsedTimeMillis();
+	pixels.setFromPixels(rawImage.GetData(), rawImage.GetCols(), rawImage.GetRows(), OF_IMAGE_GRAYSCALE);
+	latencyPixel = pixels.getColor(viewWidth / 2, viewHeight / 2);
+	bTestLatency = true;
+}
+
+//--------------------------------------------------------------
 inline void CameraController::processPixels(){
+
 	ofxFlyCapture2::processPixels();
 
-	if(bUseContour){
+	if(bTestLatency){
+			
+		pixels.setFromPixels(rawImage.GetData(), rawImage.GetCols(), rawImage.GetRows(), OF_IMAGE_GRAYSCALE);
+		//cout << "t: " << pixels.getColor(viewWidth / 2, viewHeight / 2) << "  >>>  " << latencyPixel << "   " << int(viewWidth * (viewHeight / 2) + viewHeight / 2) << endl;
+		if(pixels.getColor(viewWidth / 2, viewHeight / 2).r == 255){
+			latencyTime = ofGetElapsedTimeMillis() - latencyStart;
+			appModel->setProperty("Latency", latencyTime);
+			bTestLatency = false;
+		}
+	}
 
-		if(rPixels.cols == 0 && rPixels.rows == 0){
-			rPixels.create(rawImage.GetRows(), rawImage.GetCols(), CV_8U);
-			tPixels.create(rawImage.GetRows(), rawImage.GetCols(), CV_8U);
-			cPixels.create(rawImage.GetRows(), rawImage.GetCols(), CV_8U);
-			bPixels.create(rawImage.GetRows(), rawImage.GetCols(), CV_8U);
-		} //if(rPixels.cols == 0 && rPixels.rows == 0){
+	if(bUseContour){
 
 		cPixels.data = tempImage.GetData();
 		cPixels.copyTo(rPixels);
 
 		unlock();
 
-		if(bUseBackground){
+		if(bUseBackground && bBackgroundCaptured){
 			cv::absdiff(rPixels, bPixels, rPixels);
 		}
 
@@ -221,14 +269,12 @@ inline void CameraController::processPixels(){
 		
 	} //if(appModel->getProperty<bool>("UseContour"){
 
+
+
 }
 
 //--------------------------------------------------------------
 inline void CameraController::processTextures(){
-
-	if(contourTexture.getWidth() != tPixels.cols || contourTexture.getHeight() != tPixels.rows){
-		contourTexture.allocate(tPixels.cols, tPixels.rows, GL_LUMINANCE);
-	}
 
 	contourTexture.loadData(tPixels.data, tPixels.cols, tPixels.rows, GL_LUMINANCE);
 
@@ -267,7 +313,6 @@ inline void CameraController::blurContour(){
 				glDrawTriangleStrip(viewWidth, viewHeight);
 			}
 			
-
 			blurH.end();
 		}
 		render1.end();
