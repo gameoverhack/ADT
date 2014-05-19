@@ -1,0 +1,2542 @@
+<?xml version="1.0"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="ADT" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="addons\;src\;" />
+		<Build>
+			<Target title="release">
+				<Option output="bin\$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj\Release" />
+				<Option external_deps="..\..\..\libs\openFrameworksCompiled\lib\win_cb\openFrameworks.lib;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="../../../libs/openFrameworksCompiled/lib/win_cb/openFrameworks.lib" />
+				</Linker>
+			</Target>
+			<Target title="debug">
+				<Option output="bin\$(PROJECT_NAME)_DEBUG" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin" />
+				<Option object_output="obj\Debug\" />
+				<Option external_deps="..\..\..\libs\openFrameworksCompiled\lib\win_cb\openFrameworksDebug.lib;" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="../../../libs/openFrameworksCompiled/lib/win_cb/openFrameworksDebug.lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wno-multichar" />
+			<Add directory="..\..\..\libs\glu\include" />
+			<Add directory="..\..\..\libs\freetype\include" />
+			<Add directory="..\..\..\libs\freetype\include\freetype2" />
+			<Add directory="..\..\..\libs\FreeImage\include" />
+			<Add directory="..\..\..\libs\quicktime\include" />
+			<Add directory="..\..\..\libs\rtAudio\include" />
+			<Add directory="..\..\..\libs\fmodex\include" />
+			<Add directory="..\..\..\libs\videoInput\include" />
+			<Add directory="..\..\..\libs\glew\include" />
+			<Add directory="..\..\..\libs\glut\include" />
+			<Add directory="..\..\..\libs\glfw\include" />
+			<Add directory="..\..\..\libs\openFrameworks" />
+			<Add directory="..\..\..\libs\openFrameworks\3d" />
+			<Add directory="..\..\..\libs\openFrameworks\app" />
+			<Add directory="..\..\..\libs\openFrameworks\communication" />
+			<Add directory="..\..\..\libs\openFrameworks\events" />
+			<Add directory="..\..\..\libs\openFrameworks\gl" />
+			<Add directory="..\..\..\libs\openFrameworks\graphics" />
+			<Add directory="..\..\..\libs\openFrameworks\math" />
+			<Add directory="..\..\..\libs\openFrameworks\sound" />
+			<Add directory="..\..\..\libs\openFrameworks\types" />
+			<Add directory="..\..\..\libs\openFrameworks\utils" />
+			<Add directory="..\..\..\libs\openFrameworks\video" />
+			<Add directory="..\..\..\libs\poco\include" />
+			<Add directory="..\..\..\libs\tess2\include" />
+			<Add directory="..\..\..\libs\cairo\include\cairo" />
+			<Add directory="src" />
+			<Add directory="../../../addons/ofxAssimpModelLoader/libs" />
+			<Add directory="../../../addons/ofxAssimpModelLoader/src" />
+			<Add directory="../../../addons\ofxAssimpModelLoader\libs\assimp" />
+			<Add directory="../../../addons\ofxAssimpModelLoader\libs\assimp\include" />
+			<Add directory="../../../addons\ofxAssimpModelLoader\libs\assimp\include\Compiler" />
+			<Add directory="../../../addons\ofxAssimpModelLoader\libs\assimp\lib" />
+			<Add directory="../../../addons\ofxAssimpModelLoader\libs\assimp\lib\win_cb" />
+			<Add directory="../../../addons\ofxAssimpModelLoader\src" />
+			<Add directory="../../../addons/ofxBezierWarp/libs" />
+			<Add directory="../../../addons/ofxBezierWarp/src" />
+			<Add directory="../../../addons\ofxBezierWarp\src" />
+			<Add directory="../../../addons/ofxBlur/libs" />
+			<Add directory="../../../addons/ofxBlur/src" />
+			<Add directory="../../../addons\ofxBlur\src" />
+			<Add directory="../../../addons/ofxCv/libs" />
+			<Add directory="../../../addons/ofxCv/src" />
+			<Add directory="../../../addons\ofxCv\libs\CLD" />
+			<Add directory="../../../addons\ofxCv\libs\CLD\include" />
+			<Add directory="../../../addons\ofxCv\libs\CLD\include\CLD" />
+			<Add directory="../../../addons\ofxCv\libs\CLD\src" />
+			<Add directory="../../../addons\ofxCv\libs\ofxCv" />
+			<Add directory="../../../addons\ofxCv\libs\ofxCv\include" />
+			<Add directory="../../../addons\ofxCv\libs\ofxCv\include\ofxCv" />
+			<Add directory="../../../addons\ofxCv\libs\ofxCv\src" />
+			<Add directory="../../../addons\ofxCv\src" />
+			<Add directory="../../../addons/ofxDmx/libs" />
+			<Add directory="../../../addons/ofxDmx/src" />
+			<Add directory="../../../addons\ofxDmx\src" />
+			<Add directory="../../../addons/ofxFlyCapture2/libs" />
+			<Add directory="../../../addons/ofxFlyCapture2/src" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\C" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\lib" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\lib\C" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\lib\FC1" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\My Project" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\My Project" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\My Project" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\DirectShowScriptFiles" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\EnumerationRegFiles" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\Resources" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\res" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\res" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\Resources" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\res" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\Images" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\ipch" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\ipch\flycapture2test_2010-8d2c45a" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\My Project" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_C" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\My Project" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\My Project" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_C" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\Properties" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\bin" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\bin\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\bin\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj\x86" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj\x86\Debug" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj\x86\Debug\TempPE" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\res" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\flycapture2test_2010-8d2c45a" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\flycapture2test_c_2010-8bd9e05e" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\grabcallbackex_2010-aa8bca04" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\imageeventex_2010-2b519f3e" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\imageeventex_2010-cc2b93fc" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\vsprops" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\vsprops\VS10" />
+			<Add directory="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\vsprops\VS9" />
+			<Add directory="../../../addons\ofxFlyCapture2\src" />
+			<Add directory="../../../addons/ofxGui/libs" />
+			<Add directory="../../../addons/ofxGui/src" />
+			<Add directory="../../../addons\ofxGui\src" />
+			<Add directory="../../../addons/ofxLogger/libs" />
+			<Add directory="../../../addons/ofxLogger/src" />
+			<Add directory="../../../addons\ofxLogger\src" />
+			<Add directory="../../../addons/ofxMidi/libs" />
+			<Add directory="../../../addons/ofxMidi/src" />
+			<Add directory="../../../addons\ofxMidi\libs" />
+			<Add directory="../../../addons\ofxMidi\src" />
+			<Add directory="../../../addons/ofxMSAOpenCL/libs" />
+			<Add directory="../../../addons/ofxMSAOpenCL/src" />
+			<Add directory="../../../addons\ofxMSAOpenCL\src" />
+			<Add directory="../../../addons/ofxMSAPingPong/libs" />
+			<Add directory="../../../addons/ofxMSAPingPong/src" />
+			<Add directory="../../../addons\ofxMSAPingPong\src" />
+			<Add directory="../../../addons/ofxMVC/libs" />
+			<Add directory="../../../addons/ofxMVC/src" />
+			<Add directory="../../../addons\ofxMVC\src" />
+			<Add directory="../../../addons/ofxNetwork/libs" />
+			<Add directory="../../../addons/ofxNetwork/src" />
+			<Add directory="../../../addons\ofxNetwork\src" />
+			<Add directory="../../../addons/ofxOpenCv/libs" />
+			<Add directory="../../../addons/ofxOpenCv/src" />
+			<Add directory="../../../addons\ofxOpenCv\libs\cuda" />
+			<Add directory="../../../addons\ofxOpenCv\libs\cuda\lib" />
+			<Add directory="../../../addons\ofxOpenCv\libs\cuda\lib\win" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\contrib" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\features2d" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\highgui" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\legacy" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ml" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ocl" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\photo" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\superres" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ts" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\video" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\lib" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\lib\linuxarmv6l" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\lib\linuxarmv7l" />
+			<Add directory="../../../addons\ofxOpenCv\libs\opencv\lib\win_cb" />
+			<Add directory="../../../addons\ofxOpenCv\src" />
+			<Add directory="../../../addons/ofxOsc/libs" />
+			<Add directory="../../../addons/ofxOsc/src" />
+			<Add directory="../../../addons\ofxOsc\libs\oscpack" />
+			<Add directory="../../../addons\ofxOsc\libs\oscpack\src" />
+			<Add directory="../../../addons\ofxOsc\libs\oscpack\src\ip" />
+			<Add directory="../../../addons\ofxOsc\libs\oscpack\src\ip\posix" />
+			<Add directory="../../../addons\ofxOsc\libs\oscpack\src\ip\win32" />
+			<Add directory="../../../addons\ofxOsc\libs\oscpack\src\osc" />
+			<Add directory="../../../addons\ofxOsc\src" />
+			<Add directory="../../../addons/ofxThreadedVideo/libs" />
+			<Add directory="../../../addons/ofxThreadedVideo/src" />
+			<Add directory="../../../addons\ofxThreadedVideo\src" />
+			<Add directory="../../../addons/ofxUI/libs" />
+			<Add directory="../../../addons/ofxUI/src" />
+			<Add directory="../../../addons\ofxUI\src" />
+			<Add directory="../../../addons/ofxVectorGraphics/libs" />
+			<Add directory="../../../addons/ofxVectorGraphics/src" />
+			<Add directory="../../../addons\ofxVectorGraphics\libs" />
+			<Add directory="../../../addons\ofxVectorGraphics\src" />
+			<Add directory="../../../addons/ofxXmlSettings/libs" />
+			<Add directory="../../../addons/ofxXmlSettings/src" />
+			<Add directory="../../../addons\ofxXmlSettings\libs" />
+			<Add directory="../../../addons\ofxXmlSettings\src" />
+		</Compiler>
+		<Linker>
+			<Add library="..\..\..\libs\FreeImage\lib\win_cb\FreeImage.lib" />
+			<Add library="..\..\..\libs\rtAudio\lib\win_cb\librtaudio.a" />
+			<Add library="..\..\..\libs\quicktime\lib\win_cb\qtmlClient.lib" />
+			<Add library="..\..\..\libs\cairo\lib\win_cb\libcairo.a" />
+			<Add library="..\..\..\libs\cairo\lib\win_cb\libpixman-1.a" />
+			<Add library="..\..\..\libs\freetype\lib\win_cb\libfreetype.a" />
+			<Add library="..\..\..\libs\glut\lib\win_cb\libglut.a" />
+			<Add library="..\..\..\libs\glfw\lib\win_cb\libglfw3.a" />
+			<Add library="..\..\..\libs\videoInput\lib\win_cb\videoInputLib.a" />
+			<Add library="..\..\..\libs\fmodex\lib\win_cb\libfmodex.a" />
+			<Add library="..\..\..\libs\glew\lib\win_cb\glew32s.lib" />
+			<Add library="..\..\..\libs\glu\lib\win_cb\glu32.lib" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoNetSSL.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoCrypto.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoNet.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoUtil.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoXML.a" />
+			<Add library="..\..\..\libs\poco\lib\win_cb\libPocoFoundation.a" />
+			<Add library="..\..\..\libs\openssl\lib\win_cb\libssl.a" />
+			<Add library="..\..\..\libs\openssl\lib\win_cb\libcrypto.a" />
+			<Add library="..\..\..\libs\tess2\lib\win_cb\libtess2.a" />
+			<Add library="opengl32" />
+			<Add library="gdi32" />
+			<Add library="msimg32" />
+			<Add library="glu32" />
+			<Add library="dsound" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add library="strmbase" />
+			<Add library="strmiids" />
+			<Add library="z" />
+			<Add library="uuid" />
+			<Add library="ole32" />
+			<Add library="oleaut32" />
+			<Add library="setupapi" />
+			<Add library="wsock32" />
+			<Add library="ws2_32" />
+			<Add library="Iphlpapi" />
+			<Add library="Comdlg32" />
+			<Add library="../../../addons\ofxAssimpModelLoader\libs\assimp\lib\win_cb\libassimp.dll" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_legacy231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_haartraining_engine.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_calib3d231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_features2d231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_objdetect231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_video231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_imgproc231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_highgui231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_ml231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_core231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_flann231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_contrib231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_gpu231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libopencv_ts231.a" />
+			<Add library="../../../addons/ofxOpenCv/libs/opencv/lib/win_cb/libzlib.a" />
+		</Linker>
+		<ExtraCommands>
+			<Add after="xcopy /e /i /y &quot;$(PROJECT_DIR)..\..\..\export\win_cb\*.dll&quot;  &quot;$(PROJECT_DIR)bin&quot;" />
+			<Add after="cmd /c if not exist &quot;$(PROJECT_DIR)bin/data&quot; mkdir &quot;$(PROJECT_DIR)bin/data&quot;" />
+			<Mode after="always" />
+		</ExtraCommands>
+		<Unit filename="icon.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="src\main.cpp">
+			<Option virtualFolder="src" />
+		</Unit>
+		<Unit filename="src\ofApp.cpp">
+			<Option virtualFolder="src" />
+		</Unit>
+		<Unit filename="src\ofApp.h">
+			<Option virtualFolder="src" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\src\ofxAssimpTexture.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\src\ofxAssimpUtils.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiAnim.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiAssert.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiCamera.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiColor4D.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiConfig.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiDefines.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiFileIO.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiLight.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiMaterial.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiMatrix3x3.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiMatrix4x4.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiMesh.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiPostProcess.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiQuaternion.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiScene.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiTexture.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiTypes.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiVector2D.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiVector3D.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\aiVersion.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\assimp.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\assimp.hpp">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\Compiler\poppack1.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include\Compiler" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\Compiler\pushpack1.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include\Compiler" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\DefaultLogger.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\IOStream.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\IOSystem.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\Logger.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\LogStream.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\NullLogger.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxAssimpModelLoader\libs\assimp\include\ProgressHandler.h">
+			<Option virtualFolder="addons\ofxAssimpModelLoader\libs\assimp\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxBezierWarp\src\ofxBezierWarp.cpp">
+			<Option virtualFolder="addons\ofxBezierWarp\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxBezierWarp\src\ofxBezierWarp.h">
+			<Option virtualFolder="addons\ofxBezierWarp\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxBlur\src\main.cpp">
+			<Option virtualFolder="addons\ofxBlur\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxBlur\src\ofxBlur.cpp">
+			<Option virtualFolder="addons\ofxBlur\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxBlur\src\ofxBlur.h">
+			<Option virtualFolder="addons\ofxBlur\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxBlur\src\testApp.cpp">
+			<Option virtualFolder="addons\ofxBlur\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxBlur\src\testApp.h">
+			<Option virtualFolder="addons\ofxBlur\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\src\ofxCv.h">
+			<Option virtualFolder="addons\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\CLD\include\CLD\ETF.h">
+			<Option virtualFolder="addons\ofxCv\libs\CLD\include\CLD" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\CLD\include\CLD\fdog.h">
+			<Option virtualFolder="addons\ofxCv\libs\CLD\include\CLD" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\CLD\include\CLD\imatrix.h">
+			<Option virtualFolder="addons\ofxCv\libs\CLD\include\CLD" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\CLD\include\CLD\myvec.h">
+			<Option virtualFolder="addons\ofxCv\libs\CLD\include\CLD" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\CLD\src\ETF.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\CLD\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\CLD\src\fdog.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\CLD\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\Calibration.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\ContourFinder.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\Distance.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\Flow.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\Helpers.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\ObjectFinder.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\RunningBackground.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\Tracker.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\Utilities.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\include\ofxCv\Wrappers.h">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\include\ofxCv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\Calibration.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\ContourFinder.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\Distance.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\Flow.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\Helpers.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\ObjectFinder.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\RunningBackground.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\Tracker.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\Utilities.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxCv\libs\ofxCv\src\Wrappers.cpp">
+			<Option virtualFolder="addons\ofxCv\libs\ofxCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxDmx\src\ofxDmx.cpp">
+			<Option virtualFolder="addons\ofxDmx\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxDmx\src\ofxDmx.h">
+			<Option virtualFolder="addons\ofxDmx\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\src\ofxFlyCapture2.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\src\ofxFlyCapture2.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\AVIRecorder.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\BusManager.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\C\FlyCapture2Defs_C.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include\C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\C\FlyCapture2GUI_C.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include\C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\C\FlyCapture2Platform_C.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include\C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\C\FlyCapture2_C.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include\C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\Camera.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\CameraBase.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\Error.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1\PGRCameraGUI.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1\PGRFlyCapture.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1\PGRFlyCaptureGUI.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1\PGRFlyCaptureMessaging.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1\PGRFlyCapturePlus.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FlyCapture2.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FlyCapture2Defs.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FlyCapture2GUI.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\FlyCapture2Platform.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\GigECamera.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\Image.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\ImageStatistics.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\PGRDirectShow.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\TopologyNode.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\include\Utilities.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\include" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx\AsyncTriggerEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx\CustomImageEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx\ExtendedShutterEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\AboutDialog.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\AboutDialog.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\EventStatDialog.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\EventStatDialog.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\FlyCap2_MFC.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\FlyCap2_MFC.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\FlyCap2_MFCDoc.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\FlyCap2_MFCDoc.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\FlyCap2_MFCView.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\FlyCap2_MFCView.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\FrameRateCounter.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\FrameRateCounter.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\glext.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\HelpLauncher.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\HistogramDialog.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\HistogramDialog.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\HistogramDrawingArea.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\HistogramDrawingArea.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\HistogramPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\HistogramPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\ImageRecordingPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\ImageRecordingPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\InformationPane.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\InformationPane.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\LicenseDialog.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\LicenseDialog.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\MainFrm.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\MainFrm.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\ReceivedFrameRateCounter.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\ReceivedFrameRateCounter.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\RecordingDialog.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\RecordingDialog.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\RowColPlotPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\RowColPlotPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\TreeCtrlX.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\TreeCtrlX.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\VideoRecordingPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\VideoRecordingPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\EventStatisticsWindow.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\EventStatisticsWindow.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\FlycapWindow.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\FlycapWindow.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\FrameRateCounter.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\FrameRateCounter.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\glext.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\HelpLauncher.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\HistogramDrawingArea.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\HistogramDrawingArea.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\HistogramWindow.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\HistogramWindow.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\ImageDrawingArea.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\ImageDrawingArea.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\InformationPane.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\InformationPane.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\main.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\PGRIcon.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\PGRLogo.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\Precompiled.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\Precompiled.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\SaveImageFileChooserDialog.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\SaveImageFileChooserDialog.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\AssemblyResolver.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\AssemblyResolver.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\FlyCap2CameraControl_ILBridge.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\FlyCap2CameraControl_ILBridge.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\FlyCap2CameraSelection_ILBridge.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\FlyCap2CameraSelection_ILBridge.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\FlyCapture2CameraControlNativeExport.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\FlyCapture2GUI.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\AdvCameraSettingsPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\AdvCameraSettingsPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\BasePage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\BasePage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\BusTopologyDrawingArea.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\BusTopologyDrawingArea.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\BusTopologyPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\BusTopologyPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\CamControl.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\CamControl.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\CamInfoPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\CamInfoPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\CamSelection.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\CamSelection.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\CamSettingsPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\CamSettingsPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\DataFlashPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\DataFlashPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\DCAMFormatsPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\DCAMFormatsPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\FlyCapture2GUI.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\Format7DrawingArea.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\Format7DrawingArea.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\Format7Page.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\Format7Page.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\FrameBufferPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\FrameBufferPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\GladeFileUtil.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\GPIOPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\GPIOPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\HDRPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\HDRPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\HelpSupportPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\HelpSupportPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\LadybugSettingsPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\LadybugSettingsPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\LUTPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\LUTPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\NodeSurface.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\NodeSurface.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\PGRIcon.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\PhyRegisterDefs.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\PhyRegistersPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\PhyRegistersPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\Precompiled.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\Precompiled.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\RegisterPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\RegisterPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\SystemInfoPage.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm\SystemInfoPage.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\FlyCap2MFC.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\FlyCap2MFC.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\FlyCap2MFCDoc.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\FlyCap2MFCDoc.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\FlyCap2MFCView.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\FlyCap2MFCView.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\FrameRateCounter.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\FrameRateCounter.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\MainFrm.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\MainFrm.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\Resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\FlyCapture2Test.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C\FlyCapture2Test_C.c">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx\GigEGrabEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_C\GigEGrabEx_C.c">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_C\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx\GrabCallbackEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx\HighDynamicRangeEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx\ImageEventEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx\MultipleCameraEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx\MultipleCameraWriteToDiskEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx\SaveImageToAviEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_C\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_C\SaveImageToAviEx_C.c">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_C" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx\SaveImageToFlashEx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx\stdafx.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx\stdafx.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\main.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\PGRIcon.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\Precompiled.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\Precompiled.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\resource.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\SerialPortWindow.cpp">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\SerialPortWindow.h">
+			<Option virtualFolder="addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxBaseGui.cpp">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxBaseGui.h">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxButton.cpp">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxButton.h">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxGui.h">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxGuiGroup.cpp">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxGuiGroup.h">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxLabel.cpp">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxLabel.h">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxPanel.cpp">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxPanel.h">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxSlider.cpp">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxSlider.h">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxSliderGroup.cpp">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxSliderGroup.h">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxToggle.cpp">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxGui\src\ofxToggle.h">
+			<Option virtualFolder="addons\ofxGui\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxLogger\src\ofxLogger.cpp">
+			<Option virtualFolder="addons\ofxLogger\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxLogger\src\ofxLogger.h">
+			<Option virtualFolder="addons\ofxLogger\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\src\ofxMidi.h">
+			<Option virtualFolder="addons\ofxMidi\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\src\ofxMidiConstants.h">
+			<Option virtualFolder="addons\ofxMidi\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\src\ofxMidiEvents.h">
+			<Option virtualFolder="addons\ofxMidi\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\src\ofxMidiIn.cpp">
+			<Option virtualFolder="addons\ofxMidi\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\src\ofxMidiIn.h">
+			<Option virtualFolder="addons\ofxMidi\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\src\ofxMidiOut.cpp">
+			<Option virtualFolder="addons\ofxMidi\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\src\ofxMidiOut.h">
+			<Option virtualFolder="addons\ofxMidi\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\libs\RtError.h">
+			<Option virtualFolder="addons\ofxMidi\libs" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\libs\RtMidi.cpp">
+			<Option virtualFolder="addons\ofxMidi\libs" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMidi\libs\RtMidi.h">
+			<Option virtualFolder="addons\ofxMidi\libs" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCL.cpp">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCL.h">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLBuffer.cpp">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLBuffer.h">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLImage.cpp">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLImage.h">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLImagePingPong.h">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLKernel.cpp">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLKernel.h">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLMemoryObject.cpp">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLMemoryObject.h">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLProgram.cpp">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLProgram.h">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAOpenCL\src\MSAOpenCLTypes.h">
+			<Option virtualFolder="addons\ofxMSAOpenCL\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMSAPingPong\src\MSAPingPong.h">
+			<Option virtualFolder="addons\ofxMSAPingPong\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BaseController.cpp">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BaseController.h">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BaseModel.cpp">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BaseModel.h">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BaseView.cpp">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BaseView.h">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BaseWarp.cpp">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BaseWarp.h">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BezierWarp.cpp">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\BezierWarp.h">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\NoWarp.cpp">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\NoWarp.h">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\SerializationUtils.h">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxMVC\src\States.h">
+			<Option virtualFolder="addons\ofxMVC\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxNetwork.h">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxNetworkUtils.h">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxTCPClient.cpp">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxTCPClient.h">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxTCPManager.cpp">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxTCPManager.h">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxTCPServer.cpp">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxTCPServer.h">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxUDPManager.cpp">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxNetwork\src\ofxUDPManager.h">
+			<Option virtualFolder="addons\ofxNetwork\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvBlob.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvColorImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvColorImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvConstants.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvContourFinder.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvContourFinder.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvFloatImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvFloatImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvGrayscaleImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvHaarFinder.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvHaarFinder.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvShortImage.cpp">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxCvShortImage.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\src\ofxOpenCv.h">
+			<Option virtualFolder="addons\ofxOpenCv\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\cv.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\cv.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\cvaux.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\cvaux.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\cvwimage.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\cxcore.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\cxcore.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\cxeigen.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\cxmisc.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\highgui.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv\ml.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d\calib3d.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\contrib.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\contrib" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\detection_based_tracker.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\contrib" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\hybridtracker.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\contrib" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\openfabmap.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\contrib" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\retina.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\contrib" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\affine.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\core.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\core_c.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\cuda_devptrs.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\devmem2d.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\eigen.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\gpumat.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\internal.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\mat.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\opengl_interop.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\opengl_interop_deprecated.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\operations.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\types_c.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\version.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\core\wimage.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\core" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\features2d\features2d.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\features2d" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\allocator.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\all_indices.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\any.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\autotuned_index.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\composite_index.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\config.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\defines.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\dist.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\dummy.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\dynamic_bitset.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\flann.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\flann_base.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\general.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\ground_truth.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\hdf5.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\heap.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\hierarchical_clustering_index.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\index_testing.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\kdtree_index.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\kdtree_single_index.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\kmeans_index.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\linear_index.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\logger.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\lsh_index.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\lsh_table.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\matrix.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\miniflann.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\nn_index.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\object_factory.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\params.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\random.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\result_set.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\sampling.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\saving.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\simplex_downhill.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\flann\timer.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\flann" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\block.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\border_interpolate.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\color.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\common.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\datamov_utils.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\color_detail.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\reduce.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\reduce_key_val.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\transform_detail.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\type_traits_detail.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\vec_distance_detail.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\dynamic_smem.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\emulation.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\filters.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\funcattrib.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\functional.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\limits.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\reduce.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\saturate_cast.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\scan.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\simd_functions.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\static_check.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\transform.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\type_traits.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\utility.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\vec_distance.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\vec_math.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\vec_traits.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\warp.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\warp_reduce.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\warp_shuffle.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\devmem2d.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\gpu.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\gpumat.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\stream_accessor.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\gpu" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\cap_ios.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\highgui" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\highgui.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\highgui" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\highgui_c.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\highgui" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\ios.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\highgui" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\imgproc.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\imgproc_c.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\types_c.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\blobtrack.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\legacy" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\compat.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\legacy" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\legacy.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\legacy" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\streams.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\legacy" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ml\ml.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\ml" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\features2d.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\gpu.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\nonfree.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\ocl.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect\objdetect.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ocl\matrix_operations.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\ocl" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ocl\ocl.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\ocl" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\opencv.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\opencv_modules.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\photo\photo.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\photo" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\photo\photo_c.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\photo" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\autocalib.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\blenders.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\camera.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\exposure_compensate.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\matchers.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\motion_estimators.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\seam_finders.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\util.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\util_inl.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\warpers.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\warpers_inl.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\stitcher.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\warpers.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\stitching" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\superres\optical_flow.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\superres" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\superres\superres.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\superres" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ts\gpu_perf.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\ts" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ts\gpu_test.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\ts" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\ts" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts_gtest.h">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\ts" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts_perf.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\ts" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\video\background_segm.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\video" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\video\tracking.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\video" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\video\video.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\video" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\deblurring.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\fast_marching.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\fast_marching_inl.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\frame_source.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\global_motion.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\inpainting.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\log.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\motion_stabilizing.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\optical_flow.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\stabilizer.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\videostab.hpp">
+			<Option virtualFolder="addons\ofxOpenCv\libs\opencv\include\opencv2\videostab" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOsc.h">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscArg.h">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscBundle.cpp">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscBundle.h">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscMessage.cpp">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscMessage.h">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscParameterSync.cpp">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscParameterSync.h">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscReceiver.cpp">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscReceiver.h">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscSender.cpp">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\src\ofxOscSender.h">
+			<Option virtualFolder="addons\ofxOsc\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip\posix" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip\posix" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtilsWin.cpp">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip\win32" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocketWin.cpp">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\ip\win32" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscException.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h">
+			<Option virtualFolder="addons\ofxOsc\libs\oscpack\src\osc" />
+		</Unit>
+		<Unit filename="../../../addons\ofxThreadedVideo\src\ofxThreadedVideo.cpp">
+			<Option virtualFolder="addons\ofxThreadedVideo\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxThreadedVideo\src\ofxThreadedVideo.h">
+			<Option virtualFolder="addons\ofxThreadedVideo\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUI.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUI2DGraph.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUI2DGraph.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUI2DPad.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUI2DPad.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIBaseDraws.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIBaseDraws.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIBiLabelSlider.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIBiLabelSlider.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIButton.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIButton.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUICanvas.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUICanvas.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUICircleSlider.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUICircleSlider.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIDefines.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIDragableLabelButton.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIDragableLabelButton.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIDropDownList.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIDropDownList.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIEventArgs.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIEventArgs.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIFPS.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIFPS.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIFPSSlider.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIFPSSlider.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImage.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImage.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImageButton.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImageButton.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImageSampler.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImageSampler.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImageSlider.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImageSlider.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImageToggle.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIImageToggle.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUILabel.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUILabel.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUILabelButton.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUILabelButton.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUILabelToggle.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUILabelToggle.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIMinimalSlider.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIMinimalSlider.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIMovingGraph.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIMovingGraph.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIMultiImageButton.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIMultiImageButton.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIMultiImageToggle.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIMultiImageToggle.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUINumberDialer.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUINumberDialer.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIOFWrapper.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIRadio.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIRadio.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIRangeSlider.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIRangeSlider.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIRectangle.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIRectangle.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIRotarySlider.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIRotarySlider.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIScrollableCanvas.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIScrollableCanvas.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISlider.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISlider.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISortableList.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISortableList.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISpacer.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISpacer.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISpectrum.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISpectrum.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISuperCanvas.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUISuperCanvas.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUITabBar.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUITabBar.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUITextArea.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUITextArea.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUITextInput.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUITextInput.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIToggle.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIToggle.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIToggleMatrix.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIToggleMatrix.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIUtils.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIValuePlotter.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIValuePlotter.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIWaveform.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIWaveform.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIWidget.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIWidget.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIWidgets.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIWidgetWithLabel.cpp">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIWidgetWithLabel.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxUI\src\ofxUIWrapper.h">
+			<Option virtualFolder="addons\ofxUI\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxVectorGraphics\src\ofxVectorGraphics.cpp">
+			<Option virtualFolder="addons\ofxVectorGraphics\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxVectorGraphics\src\ofxVectorGraphics.h">
+			<Option virtualFolder="addons\ofxVectorGraphics\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxVectorGraphics\libs\CreEPS.cpp">
+			<Option virtualFolder="addons\ofxVectorGraphics\libs" />
+		</Unit>
+		<Unit filename="../../../addons\ofxVectorGraphics\libs\CreEPS.hpp">
+			<Option virtualFolder="addons\ofxVectorGraphics\libs" />
+		</Unit>
+		<Unit filename="../../../addons\ofxVectorGraphics\libs\CreEPS_Types.hpp">
+			<Option virtualFolder="addons\ofxVectorGraphics\libs" />
+		</Unit>
+		<Unit filename="../../../addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
+			<Option virtualFolder="addons\ofxXmlSettings\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxXmlSettings\src\ofxXmlSettings.h">
+			<Option virtualFolder="addons\ofxXmlSettings\src" />
+		</Unit>
+		<Unit filename="../../../addons\ofxXmlSettings\libs\tinyxml.cpp">
+			<Option virtualFolder="addons\ofxXmlSettings\libs" />
+		</Unit>
+		<Unit filename="../../../addons\ofxXmlSettings\libs\tinyxml.h">
+			<Option virtualFolder="addons\ofxXmlSettings\libs" />
+		</Unit>
+		<Unit filename="../../../addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
+			<Option virtualFolder="addons\ofxXmlSettings\libs" />
+		</Unit>
+		<Unit filename="../../../addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
+			<Option virtualFolder="addons\ofxXmlSettings\libs" />
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

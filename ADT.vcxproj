@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ADT</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxBoost\libs\boost\include\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxBezierWarp\libs;..\..\..\addons\ofxBezierWarp\src;..\..\..\addons\ofxBlur\libs;..\..\..\addons\ofxBlur\src;..\..\..\addons\ofxCv\libs;..\..\..\addons\ofxCv\src;..\..\..\addons\ofxCv\libs\CLD;..\..\..\addons\ofxCv\libs\CLD\include;..\..\..\addons\ofxCv\libs\CLD\include\CLD;..\..\..\addons\ofxCv\libs\CLD\src;..\..\..\addons\ofxCv\libs\ofxCv;..\..\..\addons\ofxCv\libs\ofxCv\include;..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv;..\..\..\addons\ofxCv\libs\ofxCv\src;..\..\..\addons\ofxDmx\libs;..\..\..\addons\ofxDmx\src;..\..\..\addons\ofxFlyCapture2\libs;..\..\..\addons\ofxFlyCapture2\src;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\include;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\include\C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\lib;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\lib\C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\lib\FC1;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\DirectShowScriptFiles;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\EnumerationRegFiles;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\Resources;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\res;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\res;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\Resources;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\res;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\Images;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\ipch;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\ipch\flycapture2test_2010-8d2c45a;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\res;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\flycapture2test_2010-8d2c45a;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\flycapture2test_c_2010-8bd9e05e;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\grabcallbackex_2010-aa8bca04;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\imageeventex_2010-2b519f3e;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\imageeventex_2010-cc2b93fc;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\vsprops;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\vsprops\VS10;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\vsprops\VS9;..\..\..\addons\ofxGui\libs;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxLogger\libs;..\..\..\addons\ofxLogger\src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMSAOpenCL\libs;..\..\..\addons\ofxMSAOpenCL\src;..\..\..\addons\ofxMSAPingPong\libs;..\..\..\addons\ofxMSAPingPong\src;..\..\..\addons\ofxMVC\libs;..\..\..\addons\ofxMVC\src;..\..\..\addons\ofxNetwork\libs;..\..\..\addons\ofxNetwork\src;..\..\..\addons\ofxOpenCv\libs;..\..\..\addons\ofxOpenCv\src;..\..\..\addons\ofxOpenCv\libs\cuda;..\..\..\addons\ofxOpenCv\libs\cuda\lib;..\..\..\addons\ofxOpenCv\libs\cuda\lib\win;..\..\..\addons\ofxOpenCv\libs\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ocl;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\photo;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\superres;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab;..\..\..\addons\ofxOpenCv\libs\opencv\lib;..\..\..\addons\ofxOpenCv\libs\opencv\lib\linuxarmv6l;..\..\..\addons\ofxOpenCv\libs\opencv\lib\linuxarmv7l;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxThreadedVideo\libs;..\..\..\addons\ofxThreadedVideo\src;..\..\..\addons\ofxUI\libs;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxVectorGraphics\libs;..\..\..\addons\ofxVectorGraphics\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies);assimp.lib;opencv_calib3d249d.lib;opencv_contrib249d.lib;opencv_core249d.lib;opencv_features2d249d.lib;opencv_flann249d.lib;opencv_gpu249d.lib;opencv_haartraining_engined.lib;opencv_highgui249d.lib;opencv_imgproc249d.lib;opencv_legacy249d.lib;opencv_ml249d.lib;opencv_objdetect249d.lib;opencv_ocl249d.lib;opencv_video249d.lib;cudart.lib;nppi.lib;nppc.lib;OpenCL.lib;zlibd.lib;FlyCapture2d_v100.lib;libboost_atomic-vc110-mt-gd-1_55.lib;libboost_chrono-vc110-mt-gd-1_55.lib;libboost_context-vc110-mt-gd-1_55.lib;libboost_coroutine-vc110-mt-gd-1_55.lib;libboost_date_time-vc110-mt-gd-1_55.lib;libboost_exception-vc110-mt-gd-1_55.lib;libboost_filesystem-vc110-mt-gd-1_55.lib;libboost_graph-vc110-mt-gd-1_55.lib;libboost_iostreams-vc110-mt-gd-1_55.lib;libboost_locale-vc110-mt-gd-1_55.lib;libboost_log-vc110-mt-gd-1_55.lib;libboost_log_setup-vc110-mt-gd-1_55.lib;libboost_math_c99-vc110-mt-gd-1_55.lib;libboost_math_c99f-vc110-mt-gd-1_55.lib;libboost_math_c99l-vc110-mt-gd-1_55.lib;libboost_math_tr1-vc110-mt-gd-1_55.lib;libboost_math_tr1f-vc110-mt-gd-1_55.lib;libboost_math_tr1l-vc110-mt-gd-1_55.lib;libboost_prg_exec_monitor-vc110-mt-gd-1_55.lib;libboost_program_options-vc110-mt-gd-1_55.lib;libboost_random-vc110-mt-gd-1_55.lib;libboost_regex-vc110-mt-gd-1_55.lib;libboost_serialization-vc110-mt-gd-1_55.lib;libboost_signals-vc110-mt-gd-1_55.lib;libboost_system-vc110-mt-gd-1_55.lib;libboost_test_exec_monitor-vc110-mt-gd-1_55.lib;libboost_thread-vc110-mt-gd-1_55.lib;libboost_timer-vc110-mt-gd-1_55.lib;libboost_unit_test_framework-vc110-mt-gd-1_55.lib;libboost_wave-vc110-mt-gd-1_55.lib;libboost_wserialization-vc110-mt-gd-1_55.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\lib;..\..\..\addons\ofxOpenCv\libs\cuda\lib\win;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs;..\..\..\addons\ofxBoost\libs\boost\lib\vs</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxBoost\libs\boost\include\;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v6.0\include;..\..\..\addons\ofxAssimpModelLoader\libs;..\..\..\addons\ofxAssimpModelLoader\src;..\..\..\addons\ofxAssimpModelLoader\libs\assimp;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxBezierWarp\libs;..\..\..\addons\ofxBezierWarp\src;..\..\..\addons\ofxBlur\libs;..\..\..\addons\ofxBlur\src;..\..\..\addons\ofxCv\libs;..\..\..\addons\ofxCv\src;..\..\..\addons\ofxCv\libs\CLD;..\..\..\addons\ofxCv\libs\CLD\include;..\..\..\addons\ofxCv\libs\CLD\include\CLD;..\..\..\addons\ofxCv\libs\CLD\src;..\..\..\addons\ofxCv\libs\ofxCv;..\..\..\addons\ofxCv\libs\ofxCv\include;..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv;..\..\..\addons\ofxCv\libs\ofxCv\src;..\..\..\addons\ofxDmx\libs;..\..\..\addons\ofxDmx\src;..\..\..\addons\ofxFlyCapture2\libs;..\..\..\addons\ofxFlyCapture2\src;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\include;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\include\C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\include\FC1;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\lib;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\lib\C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\lib\FC1;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\AsyncTriggerEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\BusEventsEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\CustomImageEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\DirectShowScriptFiles;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\EnumerationRegFiles;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ExtendedShutterEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\Resources;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2CameraControl\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2\res;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCap2_Gtkmm\res;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2GUI_GTKmm;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\Resources;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_MFC\res;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\Images;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2SimpleGUI_WPF\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\ipch;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test\ipch\flycapture2test_2010-8d2c45a;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_C\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\FlyCapture2Test_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GigEGrabEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\My Project;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\GrabCallbackEx_VB.Net\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\HighDynamicRangeEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ImageEventEx\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\MultipleCameraWriteToDiskEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_C;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\Properties;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\bin;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\bin\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\bin\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj\x86;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj\x86\Debug;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToAviEx_CSharp\obj\x86\Debug\TempPE;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SaveImageToFlashEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\SerialPortEx\res;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\flycapture2test_2010-8d2c45a;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\flycapture2test_c_2010-8bd9e05e;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\grabcallbackex_2010-aa8bca04;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\imageeventex_2010-2b519f3e;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\ipch\imageeventex_2010-cc2b93fc;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\vsprops;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\vsprops\VS10;..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\src\vsprops\VS9;..\..\..\addons\ofxGui\libs;..\..\..\addons\ofxGui\src;..\..\..\addons\ofxLogger\libs;..\..\..\addons\ofxLogger\src;..\..\..\addons\ofxMidi\libs;..\..\..\addons\ofxMidi\src;..\..\..\addons\ofxMSAOpenCL\libs;..\..\..\addons\ofxMSAOpenCL\src;..\..\..\addons\ofxMSAPingPong\libs;..\..\..\addons\ofxMSAPingPong\src;..\..\..\addons\ofxMVC\libs;..\..\..\addons\ofxMVC\src;..\..\..\addons\ofxNetwork\libs;..\..\..\addons\ofxNetwork\src;..\..\..\addons\ofxOpenCv\libs;..\..\..\addons\ofxOpenCv\src;..\..\..\addons\ofxOpenCv\libs\cuda;..\..\..\addons\ofxOpenCv\libs\cuda\lib;..\..\..\addons\ofxOpenCv\libs\cuda\lib\win;..\..\..\addons\ofxOpenCv\libs\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ml;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ocl;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\photo;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\superres;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video;..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab;..\..\..\addons\ofxOpenCv\libs\opencv\lib;..\..\..\addons\ofxOpenCv\libs\opencv\lib\linuxarmv6l;..\..\..\addons\ofxOpenCv\libs\opencv\lib\linuxarmv7l;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs;..\..\..\addons\ofxOsc\libs;..\..\..\addons\ofxOsc\src;..\..\..\addons\ofxOsc\libs\oscpack;..\..\..\addons\ofxOsc\libs\oscpack\src;..\..\..\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\addons\ofxThreadedVideo\libs;..\..\..\addons\ofxThreadedVideo\src;..\..\..\addons\ofxUI\libs;..\..\..\addons\ofxUI\src;..\..\..\addons\ofxVectorGraphics\libs;..\..\..\addons\ofxVectorGraphics\src;..\..\..\addons\ofxXmlSettings\libs;..\..\..\addons\ofxXmlSettings\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies);assimp.lib;opencv_calib3d249.lib;opencv_contrib249.lib;opencv_core249.lib;opencv_features2d249.lib;opencv_flann249.lib;opencv_gpu249.lib;opencv_haartraining_engine.lib;opencv_highgui249.lib;opencv_imgproc249.lib;opencv_legacy249.lib;opencv_ml249.lib;opencv_objdetect249.lib;opencv_ocl249.lib;opencv_video249.lib;cudart.lib;nppi.lib;nppc.lib;OpenCL.lib;zlib.lib;FlyCapture2_v100.lib;libboost_atomic-vc110-mt-1_55.lib;libboost_chrono-vc110-mt-1_55.lib;libboost_context-vc110-mt-1_55.lib;libboost_coroutine-vc110-mt-1_55.lib;libboost_date_time-vc110-mt-1_55.lib;libboost_exception-vc110-mt-1_55.lib;libboost_filesystem-vc110-mt-1_55.lib;libboost_graph-vc110-mt-1_55.lib;libboost_iostreams-vc110-mt-1_55.lib;libboost_locale-vc110-mt-1_55.lib;libboost_log-vc110-mt-1_55.lib;libboost_log_setup-vc110-mt-1_55.lib;libboost_math_c99-vc110-mt-1_55.lib;libboost_math_c99f-vc110-mt-1_55.lib;libboost_math_c99l-vc110-mt-1_55.lib;libboost_math_tr1-vc110-mt-1_55.lib;libboost_math_tr1f-vc110-mt-1_55.lib;libboost_math_tr1l-vc110-mt-1_55.lib;libboost_prg_exec_monitor-vc110-mt-1_55.lib;libboost_program_options-vc110-mt-1_55.lib;libboost_random-vc110-mt-1_55.lib;libboost_regex-vc110-mt-1_55.lib;libboost_serialization-vc110-mt-1_55.lib;libboost_signals-vc110-mt-1_55.lib;libboost_system-vc110-mt-1_55.lib;libboost_test_exec_monitor-vc110-mt-1_55.lib;libboost_thread-vc110-mt-1_55.lib;libboost_timer-vc110-mt-1_55.lib;libboost_unit_test_framework-vc110-mt-1_55.lib;libboost_wave-vc110-mt-1_55.lib;libboost_wserialization-vc110-mt-1_55.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);..\..\..\addons\ofxFlyCapture2\libs\FlyCapture2\lib;..\..\..\addons\ofxOpenCv\libs\cuda\lib\win;..\..\..\addons\ofxAssimpModelLoader\libs\assimp\lib\vs;..\..\..\addons\ofxOpenCv\libs\opencv\lib\vs;..\..\..\addons\ofxBoost\libs\boost\lib\vs</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxBlur\src\ofxBlur.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\ETF.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\CLD\src\fdog.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Calibration.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\ContourFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Distance.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Flow.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Helpers.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\ObjectFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\RunningBackground.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Tracker.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Utilities.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxCv\libs\ofxCv\src\Wrappers.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxDmx\src\ofxDmx.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxFlyCapture2\src\ofxFlyCapture2.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxLabel.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxPanel.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxGui\src\ofxToggle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxLogger\src\ofxLogger.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiIn.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\src\ofxMidiOut.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMidi\libs\RtMidi.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCL.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLBuffer.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLKernel.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLMemoryObject.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLProgram.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMVC\src\BaseController.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMVC\src\BaseModel.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMVC\src\BaseView.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMVC\src\BaseWarp.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMVC\src\BezierWarp.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxMVC\src\NoWarp.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPClient.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxNetwork\src\ofxUDPManager.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\src\ofxOscSender.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\NetworkingUtils.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\posix\UdpSocket.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtilsWin.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocketWin.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxThreadedVideo\src\ofxThreadedVideo.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUI2DGraph.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUI2DPad.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIBaseDraws.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIBiLabelSlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIButton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUICanvas.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUICircleSlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIDragableLabelButton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIDropDownList.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIEventArgs.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIFPS.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIFPSSlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIImage.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIImageButton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIImageSampler.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIImageSlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIImageToggle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUILabel.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUILabelButton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUILabelToggle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIMinimalSlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIMovingGraph.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIMultiImageButton.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIMultiImageToggle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUINumberDialer.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIRadio.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIRangeSlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIRectangle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIRotarySlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIScrollableCanvas.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUISlider.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUISortableList.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUISpacer.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUISpectrum.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUISuperCanvas.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUITabBar.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUITextArea.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUITextInput.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIToggle.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIToggleMatrix.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIValuePlotter.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIWaveform.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIWidget.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxUI\src\ofxUIWidgetWithLabel.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxVectorGraphics\src\ofxVectorGraphics.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxVectorGraphics\libs\CreEPS.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+    <ClCompile Include="src\AppController.cpp" />
+    <ClCompile Include="src\AppView.cpp" />
+    <ClCompile Include="src\DebugView.cpp" />
+    <ClCompile Include="src\Kalman.cpp" />
+    <ClCompile Include="src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxBlur\src\ofxBlur.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpAnimation.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpMeshHelper.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpModelLoader.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpTexture.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\src\ofxAssimpUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiAnim.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiAssert.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiCamera.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiColor4D.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiConfig.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiDefines.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiFileIO.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiLight.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiMaterial.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiMatrix3x3.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiMatrix4x4.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiMesh.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiPostProcess.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiQuaternion.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiScene.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiTexture.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiVector2D.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiVector3D.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\aiVersion.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\assimp.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler\poppack1.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Compiler\pushpack1.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\DefaultLogger.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\IOStream.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\IOSystem.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\Logger.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\LogStream.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\NullLogger.h" />
+    <ClInclude Include="..\..\..\addons\ofxAssimpModelLoader\libs\assimp\include\ProgressHandler.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\src\ofxCv.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\ETF.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\fdog.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\imatrix.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\CLD\include\CLD\myvec.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Calibration.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\ContourFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Distance.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Flow.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Helpers.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\ObjectFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\RunningBackground.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Tracker.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Utilities.h" />
+    <ClInclude Include="..\..\..\addons\ofxCv\libs\ofxCv\include\ofxCv\Wrappers.h" />
+    <ClInclude Include="..\..\..\addons\ofxDmx\src\ofxDmx.h" />
+    <ClInclude Include="..\..\..\addons\ofxFlyCapture2\src\ofxFlyCapture2.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGui.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxGuiGroup.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxLabel.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxPanel.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxSliderGroup.h" />
+    <ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxLogger\src\ofxLogger.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiConstants.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiEvents.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiIn.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\src\ofxMidiOut.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\libs\RtError.h" />
+    <ClInclude Include="..\..\..\addons\ofxMidi\libs\RtMidi.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCL.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLBuffer.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLImagePingPong.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLKernel.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLMemoryObject.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLProgram.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxMSAPingPong\src\MSAPingPong.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseController.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseModel.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseView.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseWarp.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\BezierWarp.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\NoWarp.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\SerializationUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\States.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxNetwork.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxNetworkUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPClient.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.h" />
+    <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxUDPManager.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvBlob.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvColorImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvConstants.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvContourFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvFloatImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvGrayscaleImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvHaarFinder.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxCvShortImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\src\ofxOpenCv.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cv.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cv.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cvaux.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cvaux.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cvwimage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cxcore.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cxcore.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cxeigen.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\cxmisc.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\highgui.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv\ml.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d\calib3d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\contrib.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\detection_based_tracker.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\hybridtracker.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\openfabmap.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\retina.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\affine.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\core.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\core_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\cuda_devptrs.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\devmem2d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\eigen.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\gpumat.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\internal.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\mat.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\opengl_interop.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\opengl_interop_deprecated.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\operations.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\types_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\version.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\core\wimage.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\features2d\features2d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\allocator.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\all_indices.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\any.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\autotuned_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\composite_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\config.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\defines.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\dist.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\dummy.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\dynamic_bitset.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\flann.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\flann_base.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\general.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\ground_truth.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\hdf5.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\heap.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\hierarchical_clustering_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\index_testing.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\kdtree_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\kdtree_single_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\kmeans_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\linear_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\logger.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\lsh_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\lsh_table.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\matrix.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\miniflann.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\nn_index.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\object_factory.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\params.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\random.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\result_set.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\sampling.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\saving.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\simplex_downhill.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\flann\timer.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\block.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\border_interpolate.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\color.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\common.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\datamov_utils.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\color_detail.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\reduce.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\reduce_key_val.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\transform_detail.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\type_traits_detail.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\detail\vec_distance_detail.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\dynamic_smem.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\emulation.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\filters.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\funcattrib.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\functional.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\limits.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\reduce.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\saturate_cast.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\scan.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\simd_functions.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\static_check.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\transform.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\type_traits.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\utility.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\vec_distance.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\vec_math.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\vec_traits.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\warp.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\warp_reduce.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\device\warp_shuffle.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\devmem2d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\gpu.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\gpumat.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\stream_accessor.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\cap_ios.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\highgui.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\highgui_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\ios.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\imgproc.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\imgproc_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\types_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\blobtrack.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\compat.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\legacy.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\streams.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ml\ml.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\features2d.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\gpu.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\nonfree.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\nonfree\ocl.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect\objdetect.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ocl\matrix_operations.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ocl\ocl.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\opencv.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\opencv_modules.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\photo\photo.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\photo\photo_c.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\autocalib.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\blenders.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\camera.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\exposure_compensate.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\matchers.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\motion_estimators.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\seam_finders.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\util.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\util_inl.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\warpers.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\detail\warpers_inl.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\stitcher.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\stitching\warpers.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\superres\optical_flow.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\superres\superres.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\gpu_perf.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\gpu_test.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts_gtest.h" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\ts\ts_perf.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video\background_segm.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video\tracking.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\video\video.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\deblurring.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\fast_marching.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\fast_marching_inl.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\frame_source.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\global_motion.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\inpainting.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\log.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\motion_stabilizing.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\optical_flow.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\stabilizer.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOpenCv\libs\opencv\include\opencv2\videostab\videostab.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOsc.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscArg.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscBundle.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscMessage.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscParameterSync.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscReceiver.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\src\ofxOscSender.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscException.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
+    <ClInclude Include="..\..\..\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
+    <ClInclude Include="..\..\..\addons\ofxThreadedVideo\src\ofxThreadedVideo.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUI.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUI2DGraph.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUI2DPad.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIBaseDraws.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIBiLabelSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUICanvas.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUICircleSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIDefines.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIDragableLabelButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIDropDownList.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIEventArgs.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIFPS.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIFPSSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImage.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImageButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImageSampler.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImageSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIImageToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUILabel.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUILabelButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUILabelToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIMinimalSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIMovingGraph.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIMultiImageButton.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIMultiImageToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUINumberDialer.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIOFWrapper.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIRadio.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIRangeSlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIRectangle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIRotarySlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIScrollableCanvas.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUISlider.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUISortableList.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUISpacer.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUISpectrum.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUISuperCanvas.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUITabBar.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUITextArea.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUITextInput.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIToggle.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIToggleMatrix.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIUtils.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIValuePlotter.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWaveform.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWidget.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWidgets.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWidgetWithLabel.h" />
+    <ClInclude Include="..\..\..\addons\ofxUI\src\ofxUIWrapper.h" />
+    <ClInclude Include="..\..\..\addons\ofxVectorGraphics\src\ofxVectorGraphics.h" />
+    <ClInclude Include="..\..\..\addons\ofxVectorGraphics\libs\CreEPS.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxVectorGraphics\libs\CreEPS_Types.hpp" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
+    <ClInclude Include="src\AppController.h" />
+    <ClInclude Include="src\AppModel.h" />
+    <ClInclude Include="src\AppStates.h" />
+    <ClInclude Include="src\AppView.h" />
+    <ClInclude Include="src\DebugView.h" />
+    <ClInclude Include="src\FileList.h" />
+    <ClInclude Include="src\Kalman.h" />
+    <ClInclude Include="src\VectorUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+    </ResourceCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
