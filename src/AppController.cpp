@@ -10,7 +10,7 @@
 
 //--------------------------------------------------------------
 AppController::AppController(){
-    ofxLogNotice() << "Creating AppController" << endl << "more??";
+    ofxLogNotice() << "Creating AppController" << endl;
 }
 
 //--------------------------------------------------------------
@@ -50,7 +50,7 @@ void AppController::setup(){
     appModel->load("config", ARCHIVE_BINARY);
     appModel->removeAllProperties();
     
-    appModel->setupGui("AppModel", 600, 0, 300, 0);
+    appModel->setupGui("AppModel", 1920 - 300, 0, 300, 0);
     ofAddListener(appModel->getGui()->newGUIEvent, this, &AppController::guiEvent);
     
     //appModel->backup("config", ARCHIVE_BINARY);
@@ -59,13 +59,30 @@ void AppController::setup(){
     appModel->setProperty("FullScreen", false, true);
     appModel->setProperty("VerticalSync", false, true);
     appModel->setProperty("Ortho", true, true);
+	appModel->setProperty("ShowCamera", true, true);
+	appModel->setProperty("UseContour", true, true);
+	appModel->setProperty("ShowContour", true, true);
+	appModel->setProperty("UseGPU", false, true);
+	appModel->setProperty("UseSortBySize", false, true);
+	appModel->setProperty("UseBackground", false, true);
+	appModel->setProperty("UseInvertThresh", false, true);
+	appModel->setProperty("UseApproxMode", true, true);
+	appModel->setProperty("UseFindHoles", false, true);
+	appModel->setProperty("Points", 500 , true, 100, 2000);
+	appModel->setProperty("Threshold", 100 , true, 0, 255);
+	appModel->setProperty("Smooth", 0.5f , true, 0.0f, 1.0f);
+	appModel->setProperty("MinContourSize", 200 , true, 0, 4000);
+	appModel->setProperty("MaxContourSize", 2000, true, 0, 4000);
     appModel->setProperty("MediaPath", (string)"/Users/gameover/Desktop/LOTE/medianew", true);
     appModel->setProperty("VideoWidth", 1920.0f, true, 0.0f, 1920.0f);
     appModel->setProperty("VideoHeight", 1080.0f, true, 0.0f, 1080.0f);
-    appModel->setProperty("OutputWidth", 1920.0f, true, 0.0f, 1920.0f);
-    appModel->setProperty("OutputHeight", 1080.0f, true, 0.0f, 1080.0f);
+    appModel->setProperty("OutputWidth", 1920.0f, false, 0.0f, 1920.0f);
+    appModel->setProperty("OutputHeight", 1080.0f, false, 0.0f, 1080.0f);
     
-    ofSetWindowShape(appModel->getProperty<float>("OutputWidth"), appModel->getProperty<float>("OutputHeight"));
+
+
+
+    //ofSetWindowShape(appModel->getProperty<float>("OutputWidth"), appModel->getProperty<float>("OutputHeight"));
     ofSetVerticalSync(appModel->getProperty<bool>("VerticalSync"));
     ofSetFullscreen(appModel->getProperty<bool>("FullScreen"));
     ofxLogSetLogToFile(appModel->getProperty<bool>("LogToFile"), ofToDataPath("log_" + ofGetTimestampString() + ".log"));
@@ -92,7 +109,8 @@ void AppController::setup(){
     /******************************************************
      *******               Controllers              *******
      *****************************************************/
-    
+    cameraController = new CameraController;
+	cameraController->setup();
     
     /******************************************************
      *******              Mouse/Screen              *******
@@ -126,7 +144,7 @@ void AppController::guiEvent(ofxUIEventArgs &e){
         case OFX_UI_WIDGET_SLIDER_H:
             ofxLogVerbose() << "UI event " << name << " (f) slider: " << ((ofxUISlider *)e.widget)->getValue() << endl;
         {
-            if(name == "OutputWidth" || name == "OutputHeight") ofSetWindowShape(appModel->getProperty<float>("OutputWidth"), appModel->getProperty<float>("OutputHeight"));
+            //if(name == "OutputWidth" || name == "OutputHeight") ofSetWindowShape(appModel->getProperty<float>("OutputWidth"), appModel->getProperty<float>("OutputHeight"));
         }
             break;
         case OFX_UI_WIDGET_TEXTINPUT:
@@ -138,6 +156,7 @@ void AppController::guiEvent(ofxUIEventArgs &e){
         case OFX_UI_WIDGET_TOGGLE:
             ofxLogVerbose() << "UI event " << name << " (b) toggle: " << ((ofxUIToggle *)e.widget)->getValue() << endl;
         {
+			if(name == "ShowCamera") cameraController->setUseTexture(appModel->getProperty<bool>("ShowCamera"));
             if(name == "VerticalSync") ofSetVerticalSync(appModel->getProperty<bool>("VerticalSync"));
             if(name == "FullScreen") ofSetFullscreen(appModel->getProperty<bool>("FullScreen"));
             if(name == "LogToFile") ofxLogSetLogToFile(appModel->getProperty<bool>("LogToFile"), ofToDataPath("log_" + ofGetTimestampString() + ".log"));
@@ -149,6 +168,7 @@ void AppController::guiEvent(ofxUIEventArgs &e){
             ofxLogWarning() << "No such ofxUI kind" << endl;
             break;
     }
+	cameraController->setVariables();
 }
 
 //--------------------------------------------------------------
@@ -165,7 +185,7 @@ void AppController::update(){
             break;
         case kAPPCONTROLLER_PLAY:
         {
-            
+            cameraController->update();
         }
             break;
     }
@@ -193,6 +213,7 @@ void AppController::draw(){
             ofEnableBlendMode(OF_BLENDMODE_SCREEN);
 
             appView->draw();
+			cameraController->draw();
             
         }
             break;
@@ -252,7 +273,7 @@ void AppController::mouseMoved(ofMouseEventArgs & e){
 //--------------------------------------------------------------
 void AppController::mouseDragged(ofMouseEventArgs & e){
     //if(keyModifiers.getAppleCommandModifier()){
-        appModel->getGui()->setPosition(e.x, e.y);
+        //appModel->getGui()->setPosition(e.x, e.y);
     //}
 }
 

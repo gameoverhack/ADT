@@ -10,6 +10,7 @@
 #define __H_APPCONTROLLER
 
 #include "BaseController.h"
+#include "CameraController.h"
 #include "AppModel.h"
 #include "AppView.h"
 #include "DebugView.h"
@@ -45,6 +46,7 @@ protected:
     
     AppView * appView;
     DebugView * debugView;
+	CameraController * cameraController;
     
 };
 

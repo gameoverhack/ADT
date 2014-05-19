@@ -211,6 +211,7 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
     <ClCompile Include="src\AppController.cpp" />
     <ClCompile Include="src\AppView.cpp" />
+    <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\DebugView.cpp" />
     <ClCompile Include="src\Kalman.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -561,6 +562,7 @@
     <ClInclude Include="src\AppModel.h" />
     <ClInclude Include="src\AppStates.h" />
     <ClInclude Include="src\AppView.h" />
+    <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\DebugView.h" />
     <ClInclude Include="src\FileList.h" />
     <ClInclude Include="src\Kalman.h" />
