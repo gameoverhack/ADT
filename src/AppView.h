@@ -12,13 +12,6 @@
 #include "AppModel.h"
 #include "BaseView.h"
 
-typedef struct{
-    
-    float cFade;
-    int numPlayers;
-    
-} WindowFades;
-
 class AppView : public BaseView{
     
 public:
@@ -26,16 +19,9 @@ public:
     AppView();
     ~AppView();
     
-    void resetCamera();
-    void setCameraOrtho(bool b);
-    void toggleCameraOrtho();
-    
     void update();
     
 protected:
-	
-    ofEasyCam cam;
-    ofShader shader;
     
 };
 

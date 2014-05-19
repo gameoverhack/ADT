@@ -58,7 +58,6 @@ void AppController::setup(){
     appModel->setProperty("LogToFile", false, true);
     appModel->setProperty("FullScreen", false, true);
     appModel->setProperty("VerticalSync", false, true);
-    appModel->setProperty("Ortho", true, true);
 	appModel->setProperty("ShowCamera", true, true);
 	appModel->setProperty("UseContour", true, true);
 	appModel->setProperty("ShowContour", true, true);
@@ -71,6 +70,8 @@ void AppController::setup(){
 	appModel->setProperty("Points", 500 , true, 100, 2000);
 	appModel->setProperty("Threshold", 100 , true, 0, 255);
 	appModel->setProperty("Smooth", 0.5f , true, 0.0f, 1.0f);
+	appModel->setProperty("Erode", 0.0f, true, 0.0f, 100.0f);
+	appModel->setProperty("Blur", 0 , true, 0, 10);
 	appModel->setProperty("MinContourSize", 200 , true, 0, 4000);
 	appModel->setProperty("MaxContourSize", 2000, true, 0, 4000);
     appModel->setProperty("MediaPath", (string)"/Users/gameover/Desktop/LOTE/medianew", true);
@@ -124,6 +125,7 @@ void AppController::setup(){
     //ofHideCursor();
     //ofSetFullscreen(true);
     
+	ofBackground(0, 0, 0);
     appControllerStates.setState(kAPPCONTROLLER_INIT);
     
 }
@@ -198,7 +200,7 @@ void AppController::draw(){
     StateGroup & debugViewStates = appModel->getStateGroup("DebugViewStates");
     StateGroup & appControllerStates = appModel->getStateGroup("AppControllerStates");
 
-    appView->update();
+    //appView->update();
     
     if(debugViewStates.getState(kDEBUGVIEW_SHOWINFO)) debugView->update();
     
@@ -212,7 +214,7 @@ void AppController::draw(){
         {
             ofEnableBlendMode(OF_BLENDMODE_SCREEN);
 
-            appView->draw();
+            //appView->draw();
 			cameraController->draw();
             
         }
@@ -254,7 +256,7 @@ void AppController::keyPressed(ofKeyEventArgs & e){
             debugViewStates.toggleState(kDEBUGVIEW_SHOWSTATES);
             break;
         case 'c':
-            appView->resetCamera();
+            
             break;
 	}
     

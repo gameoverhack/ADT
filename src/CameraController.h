@@ -4,8 +4,10 @@
 #include "ofxFlyCapture2.h"
 #include "ofxCv.h"
 #include "cv.h"
+#include <opencv2/gpu/gpu.hpp> 
 #include "BaseController.h"
 #include "AppModel.h"
+#include "ofxThreadedVideo.h"
 
 using namespace ofxCv;
 using namespace cv;
@@ -28,6 +30,14 @@ public:
 
 private:
 
+	inline void blurContour();
+
+	ofxThreadedVideo video;
+	ofShader matte, blurV, blurH;
+	ofFbo render0, render1;
+
+	ofTexture contourTexture, videoTexture;
+
 	vector< vector<cv::Point> > contours, tContours;
 	vector<cv::Rect> boundingRects, tBoundingRects;
 
@@ -35,9 +45,12 @@ private:
 	cv::Mat tPixels;
 	cv::Mat cPixels;
 	cv::Mat bPixels;
+	cv::gpu::GpuMat gSPixels, gDPixels;
 
-	ofTexture contourTex;
-
+	float erodeSize;
+	int blurSize;
+	float viewWidth;
+	float viewHeight;
 	float maxArea;
 	float minArea;
 	bool bUseContour;
@@ -46,6 +59,7 @@ private:
 	bool bFindHoles;
 	bool bApproximateMode;
 	bool bUseScaleBySize;
+	bool bUseGPU;
 	float smooth;
 	float ismooth;
 	int totalPoints;

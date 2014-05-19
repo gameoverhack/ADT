@@ -25,14 +25,12 @@ AppView::AppView(){
     StateGroup & appViewStates = appModel->getStateGroup("AppViewStates");
     
     appViewStates.setState(kAPPVIEW_NORMAL);
-    
-    resetCamera();
-    
-#ifdef USE_PRORES
-    ofxLogNotice() << "Loading 2YUV Shader" << endl;
-    shader.load(ofToDataPath("yuyvtorgba"));
-#endif
-    
+
+	//appModel->getTextureMutex().lock();
+	//appModel->getContourTexture().allocate(1920.0f, 1080.0f, GL_LUMINANCE);
+	//appModel->getVideoTexture().allocate(1920.0f, 1080.0f, GL_BGRA);
+ //   appModel->getTextureMutex().unlock();
+
 }
 
 //--------------------------------------------------------------
@@ -41,68 +39,24 @@ AppView::~AppView(){
 }
 
 //--------------------------------------------------------------
-void AppView::resetCamera(){
-    
-//    cout << cam.getX() << " " << cam.getY() << " " << cam.getZ() << " " << cam.getRoll() << " " << cam.getPitch() << " " << cam.getHeading() << endl;
-    cam.enableMouseInput();
-    cam.resetTransform();
-//    cam.setPosition(0, 0, 0);
-    cam.setPosition(0, 5.02717e-05, -575.041);
-    setCameraOrtho(appModel->getProperty<bool>("Ortho"));
-    cam.tilt(180);
-    cam.setTranslationKey('z');
-    
-    ofBackground(0, 0, 0);
-    
-//    cout << cam.getX() << " " << cam.getY() << " " << cam.getZ() << " " << cam.getRoll() << " " << cam.getPitch() << " " << cam.getHeading() << endl;
-}
-
-//--------------------------------------------------------------
-void AppView::setCameraOrtho(bool b){
-    if(b){
-        cam.enableOrtho();
-    }else{
-        cam.disableOrtho();
-    }
-    appModel->setProperty("Ortho", b);
-}
-
-//--------------------------------------------------------------
-void AppView::toggleCameraOrtho(){
-    if(!cam.getOrtho()){
-        cam.enableOrtho();
-    }else{
-        cam.disableOrtho();
-    }
-    appModel->setProperty("Ortho", cam.getOrtho());
-}
-
-//--------------------------------------------------------------
 void AppView::update(){
     
     StateGroup & appViewStates = appModel->getStateGroup("AppViewStates");
-    
+
     begin();
     {
-        ofSetBackgroundColor(0, 0, 0, 0);
         
-        cam.begin();
+        //ofEnableBlendMode(OF_BLENDMODE_SCREEN);
         
-        if(cam.getOrtho()){
-            ofTranslate(0, -ofGetHeight());
-        }else{
-            ofTranslate(-ofGetWidth() / 2.0, -ofGetHeight() / 2.0);
-        }
-        
-        ofEnableBlendMode(OF_BLENDMODE_SCREEN);
-        
-        
-        ofDisableBlendMode();
-        
-        cam.end();
-        
+		//appModel->getTextureMutex().lock();
+		//appModel->getContourTexture().draw(0,0);
+		//appModel->getTextureMutex().unlock();
+
+        //ofDisableBlendMode();
 
     }
     end();
     
+	
+
 }

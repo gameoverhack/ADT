@@ -59,8 +59,23 @@ public:
         BaseModel::load(filename + "_props", archiveType);
     }
     
+	//ofMutex& getTextureMutex(){
+	//	return textureMutex;
+	//}
+
+	//ofTexture& getContourTexture(){
+	//	return contourTexture;
+	//}
+
+	//ofTexture& getVideoTexture(){
+	//	return videoTexture;
+	//}
+
 protected:
     
+	//ofTexture contourTexture, videoTexture;
+	//ofMutex textureMutex;
+
     friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version){
