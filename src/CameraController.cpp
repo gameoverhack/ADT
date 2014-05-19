@@ -19,10 +19,19 @@ void genTexCoordOffsets(GLuint width, GLuint height, GLfloat step = 1.0f) // Not
 	{
 		for (int j = 0; j < tcOffsetRows; j++)
 		{
-			texCoordOffsets[(((i*5)+j)*2)+0] = (-2.0f * xInc) + ((GLfloat)i * xInc);
-			texCoordOffsets[(((i*5)+j)*2)+1] = (-2.0f * yInc) + ((GLfloat)j * yInc);
+			texCoordOffsets[(((i*5)+j)*2)+0] = ((-2.0f * xInc) + ((GLfloat)i * xInc)) * width;
+			texCoordOffsets[(((i*5)+j)*2)+1] = ((-2.0f * yInc) + ((GLfloat)j * yInc)) * height;
 		}
 	}
+}
+
+inline void glDrawTriangleStrip(float& width, float& height){
+	glBegin(GL_TRIANGLE_STRIP);
+	glTexCoord2f(0, 0);	glVertex2f(0, 0);
+    glTexCoord2f(0, height); glVertex2f(0, height);
+    glTexCoord2f(width, 0); glVertex2f(width, 0);
+    glTexCoord2f(width, height); glVertex2f(width, height);
+	glEnd();
 }
 
 struct CompareContourArea
@@ -48,21 +57,29 @@ CameraController::CameraController(){
 
 //--------------------------------------------------------------
 CameraController::~CameraController(){
-	ofxLogNotice() << "Creating CameraController" << endl;
+	ofxLogNotice() << "Destroying CameraController" << endl;
+	ofxFlyCapture2::~ofxFlyCapture2();
 }
 
 //--------------------------------------------------------------
 void CameraController::setup(){
+
+	bool bShaderOk = false;
+	bShaderOk = matte.load(ofToDataPath("effects"));
+	assert(bShaderOk);
+	bShaderOk = blurV.load(ofToDataPath("blur_vertical"));
+	assert(bShaderOk);
+	bShaderOk = blurH.load(ofToDataPath("blur_horizontal"));
+	assert(bShaderOk);
+
 	setVariables();
 	ofxFlyCapture2::setup();
 	ofxFlyCapture2::setUseOFPixels(false);
 	ofxFlyCapture2::setUseTexture(appModel->getProperty<bool>("ShowCamera"));
 	contourTexture.allocate(viewWidth, viewHeight, GL_LUMINANCE);
-	videoTexture.allocate(viewWidth, viewHeight, GL_BGRA);
 	render0.allocate(viewWidth, viewHeight);
 	render1.allocate(viewWidth, viewHeight);
-	genTexCoordOffsets(viewWidth, viewHeight);
-
+	
 	if(gpu::getCudaEnabledDeviceCount() > 0){
 		ofxLogNotice() << "Setting up GPU openCV" << endl;
 		cv::gpu::setDevice(0);
@@ -72,13 +89,7 @@ void CameraController::setup(){
 	video.loadMovie(ofToDataPath("C:/Users/gameoverdrive/Desktop/FlyTest.mov"));
 	video.play();
 
-	bool bShaderOk = false;
-	bShaderOk = matte.load(ofToDataPath("matte"));
-	assert(bShaderOk);
-	bShaderOk = blurV.load(ofToDataPath("blur_vertical"));
-	assert(bShaderOk);
-	bShaderOk = blurH.load(ofToDataPath("blur_horizontal"));
-	assert(bShaderOk);
+	
 }
 
 //--------------------------------------------------------------
@@ -100,19 +111,13 @@ void CameraController::draw(){
 	matte.begin();
 	if(!bPixelsDirty) matte.setUniformTexture("contourTexture", (blurSize == 0 ? contourTexture : render1.getTextureReference()), 2);
 	if(video.isFrameNew()) matte.setUniformTexture("videoTexture", video.getTextureReference(), 3);
-	glBegin(GL_TRIANGLE_STRIP);
-	glTexCoord2f(0, 0);	glVertex2f(0, 0);
-    glTexCoord2f(0, viewHeight); glVertex2f(0, viewHeight);
-    glTexCoord2f(viewWidth, 0); glVertex2f(viewWidth, 0);
-    glTexCoord2f(viewWidth, viewHeight); glVertex2f(viewWidth, viewHeight);
-	glEnd();
+	glDrawTriangleStrip(viewWidth, viewHeight);
 	matte.end();
 	
 	if(ofGetFrameNum() % 25 == 0) appModel->setProperty("ProcessTime", (float)frameProcessTime);
 }
 
 void CameraController::setVariables(){
-	erodeSize = appModel->getProperty<float>("Erode");
 	blurSize = appModel->getProperty<int>("Blur");
 	viewWidth = appModel->getProperty<float>("OutputWidth");
 	viewHeight = appModel->getProperty<float>("OutputHeight");
@@ -126,9 +131,16 @@ void CameraController::setVariables(){
 	bApproximateMode = appModel->getProperty<bool>("UseApproxMode");
 	bUseScaleBySize = appModel->getProperty<bool>("UseSortBySize");
 	smooth	= appModel->getProperty<float>("Smooth");
-	ismooth	= 1.0f - smooth;
 	totalPoints = appModel->getProperty<int>("Points");
 	threshold = appModel->getProperty<int>("Threshold");
+	if(erodeSize != appModel->getProperty<int>("Erode")){
+		erodeSize = appModel->getProperty<int>("Erode");
+		genTexCoordOffsets(viewWidth, viewHeight, erodeSize);
+		matte.begin();
+		matte.setUniform2fv("tcOffset", texCoordOffsets, 25);
+		matte.end();
+	}
+	
 }
 
 //--------------------------------------------------------------
@@ -142,10 +154,6 @@ inline void CameraController::processPixels(){
 			tPixels.create(rawImage.GetRows(), rawImage.GetCols(), CV_8U);
 			cPixels.create(rawImage.GetRows(), rawImage.GetCols(), CV_8U);
 			bPixels.create(rawImage.GetRows(), rawImage.GetCols(), CV_8U);
-			if(gpu::getCudaEnabledDeviceCount() > 0){
-				gSPixels.create(rawImage.GetRows(), rawImage.GetCols(), CV_8U);
-				gDPixels.create(rawImage.GetRows(), rawImage.GetCols(), CV_8U);
-			}
 		} //if(rPixels.cols == 0 && rPixels.rows == 0){
 
 		cPixels.data = tempImage.GetData();
@@ -186,44 +194,31 @@ inline void CameraController::processPixels(){
 
 		tContours.clear();
 		tContours.resize(allIndices.size());
-		tBoundingRects.clear();
+		//tBoundingRects.clear();
 
 		for(int i = 0; i < allIndices.size(); i++) {
 
+			totalPoints = ceil( (float)allContours[allIndices[i]].size() * smooth);
 			for(int k = 0; k < totalPoints; k++){ // change to 1 if using smooth
 				int j = ceil( ( (float)allContours[allIndices[i]].size() / (float)totalPoints ) * k );
-				//tContours[i].push_back(allContours[allIndices[i]][j] * smooth + allContours[allIndices[i]][j - 1] * ismooth);	
 				tContours[i].push_back(allContours[allIndices[i]][j]);	
 			}
 			
-			tBoundingRects.push_back(boundingRect(tContours[i]));
+			//tBoundingRects.push_back(boundingRect(tContours[i]));
 
 		} //for(int i = 0; i < allIndices.size(); i++) {
 
 		//tracker.trackContour(tBoundingRects, tContours);
 
 		lock();
-		boundingRects = tBoundingRects;
+		//boundingRects = tBoundingRects;
 		contours = tContours;
 		//smoothedContour = tracker.smoothedContour;
 		//labels = tracker.getCurrentLabels();
 		tPixels.setTo(0);
 		Scalar color(255, 255, 255);
 		drawContours(tPixels, contours, -1, color, CV_FILLED);
-
-		//cv::erode(tPixels, tPixels, Mat(), cv::Point(-1, -1), ceil(erodeSize));
-
-		//if(bUseGPU){
-		//	gSPixels.upload(tPixels);
-		//	cv::gpu::erode(gSPixels, gDPixels, Mat(), cv::Point(-1, -1), 2);
-		//	cv::gpu::blur(gDPixels, gSPixels, cv::Size2i(10,10));
-		//	gSPixels.download(tPixels);
-		//}else{
-		//	cv::erode(tPixels, tPixels, Mat(), cv::Point(-1, -1), 2);
-		//	cv::blur(tPixels, tPixels, cv::Size2i(10,10));
-		//}
 		
-
 	} //if(appModel->getProperty<bool>("UseContour"){
 
 }
@@ -236,13 +231,6 @@ inline void CameraController::processTextures(){
 	}
 
 	contourTexture.loadData(tPixels.data, tPixels.cols, tPixels.rows, GL_LUMINANCE);
-
-	//render1.begin();
-	//ofClear(0,0,0,1);
-	//float xErode = tPixels.cols * erodeSize / 2.0f;
-	//float yErode = tPixels.rows * erodeSize / 2.0f;
-	//contourTexture.draw(0, 0, tPixels.cols - xErode, tPixels.rows - yErode);
-	//render1.end();
 
 	if(blurSize > 0) blurContour();
 }
@@ -263,12 +251,7 @@ inline void CameraController::blurContour(){
 			{
 				blurV.setUniformTexture("texture", (pass == 0 ? contourTexture : render1.getTextureReference()), 1);
 				blurV.setUniform1f("blurSize", (float)blurSize);
-				glBegin(GL_TRIANGLE_STRIP);
-				glTexCoord2f(0, 0);	glVertex2f(0, 0);
-				glTexCoord2f(0, viewHeight); glVertex2f(0, viewHeight);
-				glTexCoord2f(viewWidth, 0); glVertex2f(viewWidth, 0);
-				glTexCoord2f(viewWidth, viewHeight); glVertex2f(viewWidth, viewHeight);
-				glEnd();
+				glDrawTriangleStrip(viewWidth, viewHeight);
 			}
 			blurV.end();
 		}
@@ -281,12 +264,7 @@ inline void CameraController::blurContour(){
 			{
 				blurH.setUniformTexture("texture", render0.getTextureReference(), 1);
 				blurH.setUniform1f("blurSize", (float)blurSize);
-				glBegin(GL_TRIANGLE_STRIP);
-				glTexCoord2f(0, 0);	glVertex2f(0, 0);
-				glTexCoord2f(0, viewHeight); glVertex2f(0, viewHeight);
-				glTexCoord2f(viewWidth, 0); glVertex2f(viewWidth, 0);
-				glTexCoord2f(viewWidth, viewHeight); glVertex2f(viewWidth, viewHeight);
-				glEnd();
+				glDrawTriangleStrip(viewWidth, viewHeight);
 			}
 			
 

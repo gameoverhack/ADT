@@ -48,7 +48,7 @@ void AppController::setup(){
      *****************************************************/
     
     appModel->load("config", ARCHIVE_BINARY);
-    appModel->removeAllProperties();
+    //appModel->removeAllProperties();
     
     appModel->setupGui("AppModel", 1920 - 300, 0, 300, 0);
     ofAddListener(appModel->getGui()->newGUIEvent, this, &AppController::guiEvent);
@@ -58,22 +58,21 @@ void AppController::setup(){
     appModel->setProperty("LogToFile", false, true);
     appModel->setProperty("FullScreen", false, true);
     appModel->setProperty("VerticalSync", false, true);
-	appModel->setProperty("ShowCamera", true, true);
-	appModel->setProperty("UseContour", true, true);
-	appModel->setProperty("ShowContour", true, true);
-	appModel->setProperty("UseGPU", false, true);
-	appModel->setProperty("UseSortBySize", false, true);
-	appModel->setProperty("UseBackground", false, true);
-	appModel->setProperty("UseInvertThresh", false, true);
-	appModel->setProperty("UseApproxMode", true, true);
-	appModel->setProperty("UseFindHoles", false, true);
-	appModel->setProperty("Points", 500 , true, 100, 2000);
-	appModel->setProperty("Threshold", 100 , true, 0, 255);
-	appModel->setProperty("Smooth", 0.5f , true, 0.0f, 1.0f);
-	appModel->setProperty("Erode", 0.0f, true, 0.0f, 100.0f);
-	appModel->setProperty("Blur", 0 , true, 0, 10);
-	appModel->setProperty("MinContourSize", 200 , true, 0, 4000);
-	appModel->setProperty("MaxContourSize", 2000, true, 0, 4000);
+	//appModel->setProperty("ShowCamera", false, true);
+	//appModel->setProperty("UseContour", true, true);
+	//appModel->setProperty("UseGPU", false, true);
+	//appModel->setProperty("UseSortBySize", false, true);
+	//appModel->setProperty("UseBackground", false, true);
+	//appModel->setProperty("UseInvertThresh", false, true);
+	//appModel->setProperty("UseApproxMode", true, true);
+	//appModel->setProperty("UseFindHoles", false, true);
+	//appModel->setProperty("Points", 500 , true, 100, 2000);
+	//appModel->setProperty("Threshold", 100 , true, 0, 255);
+	//appModel->setProperty("Smooth", 0.5f , true, 0.0f, 1.0f);
+	//appModel->setProperty("Erode", 0, true, 0, 100);
+	//appModel->setProperty("Blur", 0 , true, 0, 10);
+	//appModel->setProperty("MinContourSize", 200 , true, 0, 4000);
+	//appModel->setProperty("MaxContourSize", 2000, true, 0, 4000);
     appModel->setProperty("MediaPath", (string)"/Users/gameover/Desktop/LOTE/medianew", true);
     appModel->setProperty("VideoWidth", 1920.0f, true, 0.0f, 1920.0f);
     appModel->setProperty("VideoHeight", 1080.0f, true, 0.0f, 1080.0f);

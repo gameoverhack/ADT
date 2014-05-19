@@ -36,7 +36,7 @@ private:
 	ofShader matte, blurV, blurH;
 	ofFbo render0, render1;
 
-	ofTexture contourTexture, videoTexture;
+	ofTexture contourTexture;
 
 	vector< vector<cv::Point> > contours, tContours;
 	vector<cv::Rect> boundingRects, tBoundingRects;
@@ -45,9 +45,8 @@ private:
 	cv::Mat tPixels;
 	cv::Mat cPixels;
 	cv::Mat bPixels;
-	cv::gpu::GpuMat gSPixels, gDPixels;
 
-	float erodeSize;
+	int erodeSize;
 	int blurSize;
 	float viewWidth;
 	float viewHeight;
@@ -61,7 +60,6 @@ private:
 	bool bUseScaleBySize;
 	bool bUseGPU;
 	float smooth;
-	float ismooth;
 	int totalPoints;
 	int threshold;
 
