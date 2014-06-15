@@ -10,9 +10,9 @@
 #define __H_APPCONTROLLER
 
 #include "BaseController.h"
-#include "CameraController.h"
 #include "AppModel.h"
 #include "DebugView.h"
+#include "ofxThreadedVideo.h"
 
 class AppController : public BaseController{
     
@@ -36,19 +36,31 @@ public:
     void mousePressed(ofMouseEventArgs & e);
     void mouseReleased(ofMouseEventArgs & e);
     
-    void parameterIntEvent(ParameterEvent<int> &e);
-	void parameterFloatEvent(ParameterEvent<float> &e);
-	void parameterBoolEvent(ParameterEvent<bool> &e);
+//    void guiEvent(ofxUIEventArgs &e);
     
 protected:
     
-	void setFullScreen(bool b);
-
+    
+    vector<int> laintVec;
+    int laint;
+    float lafloat[100];
+    
     ofPoint mouseHit;
     //KeyModifiers keyModifiers;
     
+//    Gui * gui;
+    
+//    ofxUISuperCanvas * guiC;
+    
+//    ofxPanel guiO;
+//    ofxFloatSlider ss[200];
+//    bool bHide = false;
+    
+    ofxThreadedVideo vid;
+    
+    //AppView * appView;
     DebugView * debugView;
-	CameraController * cameraController;
+   // DeviceController * deviceController;
     
 };
 

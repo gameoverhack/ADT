@@ -78,7 +78,7 @@ void CameraController::setup(){
 	setVariables();
 	ofxFlyCapture2::setup();
 	ofxFlyCapture2::setUseOFPixels(false);
-	ofxFlyCapture2::setUseTexture(appModel->getPropertyReference<bool>("ShowCamera"));
+	ofxFlyCapture2::setUseTexture(appModel->getProperty<bool>("ShowCamera"));
 
 	rPixels.create(viewHeight, viewWidth, CV_8U);
 	hPixels.create(viewHeight, viewWidth, CV_8U);
@@ -109,9 +109,9 @@ void CameraController::setup(){
 		cv::gpu::setDevice(0);
 	}
 	
-	setCameraFrameRate(appModel->getPropertyReference<int>("FrameRate"));
-	setCameraGain(appModel->getPropertyReference<float>("Gain"));
-	setCameraShutter(appModel->getPropertyReference<float>("Shutter"));
+	setCameraFrameRate(appModel->getProperty<int>("FrameRate"));
+	setCameraGain(appModel->getProperty<float>("Gain"));
+	setCameraShutter(appModel->getProperty<float>("Shutter"));
 
 	video.setPixelFormat(OF_PIXELS_BGRA);
 	video.loadMovie(ofToDataPath("C:/Users/gameoverdrive/Desktop/FlyTest.mov"));
@@ -200,93 +200,35 @@ void CameraController::draw(){
 //--------------------------------------------------------------
 void CameraController::setVariables(){
 
-	appModel->setProperty("UseVideo", true);
-	appModel->setProperty("ResetWarp", false);
-	appModel->setProperty("FrameRate", 50 , 1, 100);
-	appModel->setProperty("Shutter", 20.0f, 1.0f, 100.0f);
-	appModel->setProperty("Gain", 0.0f, 0.0f, 20.0f);
-	appModel->setProperty("MinContourSize", 50, 0, 3000);
-	appModel->setProperty("MaxContourSize", 2000, 0, 3000);
+	bUseContour = appModel->getProperty<bool>("UseContour");
+	bUseGPU = appModel->getProperty<bool>("UseGPU");
+	bInvertThreshold = appModel->getProperty<bool>("UseInvertThresh");
+	bFindHoles = appModel->getProperty<bool>("UseFindHoles");
+	bApproximateMode = appModel->getProperty<bool>("UseApproxMode");
+	bUseSortBySize = appModel->getProperty<bool>("UseSortBySize");;
+	bUseBackground = appModel->getProperty<bool>("UseBackground");
+	bUseSecondMonitor = appModel->getProperty<bool>("SecondMonitor");
+	bShowBackground = appModel->getProperty<bool>("ShowBackground");
+	bUseWarp = appModel->getProperty<bool>("UseWarp");
+	bShowWarp = appModel->getProperty<bool>("ShowWarp");
+	bUseRange = appModel->getProperty<bool>("UseRange");
 
-	appModel->setProperty("SecondMonitor", &bUseSecondMonitor);
-	appModel->setProperty("ShowCamera", &bUseTexture);
-	appModel->setProperty("ShowBackground", &bUseBackground);
-	appModel->setProperty("UseContour", &bUseContour);
-	appModel->setProperty("UseGPU", &bUseGPU);
-	appModel->setProperty("UseSortBySize", &bUseGPU);
-	appModel->setProperty("UseBackground", &bUseBackground);
-	appModel->setProperty("UseRange", &bUseRange);
-	appModel->setProperty("UseInvertThresh", &bInvertThreshold);
-	appModel->setProperty("UseApproxMode", &bApproximateMode);
-	appModel->setProperty("UseFindHoles", &bFindHoles);
+	blurSize = appModel->getProperty<int>("Blur");
+	smooth = appModel->getProperty<float>("Smooth");
+	threshold = appModel->getProperty<int>("Threshold");
 	
-	appModel->setProperty("fLevel", &fLevel, 0.0f, 1.0f);
-	appModel->setProperty("rLevel", &rLevel, 0.0f, 1.0f);
-	appModel->setProperty("gLevel", &gLevel, 0.0f, 1.0f);
-	appModel->setProperty("bLevel", &bLevel, 0.0f, 1.0f);
-	appModel->setProperty("Threshold", &threshold, 0, 255);
-	appModel->setProperty("Smooth", &smooth, 0.0f, 1.0f);
-	appModel->setProperty("Erode", &erodeSize, 0, 100);
-	appModel->setProperty("Blur", &blurSize, 0, 10);
+	viewWidth = appModel->getProperty<float>("OutputWidth");
+	viewHeight = appModel->getProperty<float>("OutputHeight");
 
-	appModel->setProperty("ShowWarp", &bShowWarp);
-	appModel->setProperty("UseWarp", &bUseWarp);
-
-	//appModel->setProperty("ShowCamera", false);
-	//appModel->setProperty("ShowBackground", false);
-	//appModel->setProperty("UseContour", true);
-	//appModel->setProperty("UseGPU", false);
-	//appModel->setProperty("UseSortBySize", false);
-	//appModel->setProperty("UseBackground", false);
-	//appModel->setProperty("UseRange", false);
-	//appModel->setProperty("UseInvertThresh", false);
-	//appModel->setProperty("UseApproxMode", true);
-	//appModel->setProperty("UseFindHoles", false);
-	//appModel->setProperty("UseVideo", true);
-	//appModel->setProperty("fLevel", 1.0f, 0.0f, 1.0f);
-	//appModel->setProperty("rLevel", 1.0f, 0.0f, 1.0f);
-	//appModel->setProperty("gLevel", 1.0f, 0.0f, 1.0f);
-	//appModel->setProperty("bLevel", 1.0f, 0.0f, 1.0f);
-	//appModel->setProperty("Threshold", 100, 0, 255);
-	//appModel->setProperty("Smooth", 0.5f, 0.0f, 1.0f);
-	//appModel->setProperty("Erode", 0, 0, 100);
-	//appModel->setProperty("Blur", 0, 0, 10);
-	//appModel->setProperty("MinContourSize", 50, 0, 4000);
-	//appModel->setProperty("MaxContourSize", 2000, 0, 4000);
-	//appModel->setProperty("ShowWarp", false);
-	//appModel->setProperty("ResetWarp", false);
-	//appModel->setProperty("UseWarp", true);
-	//appModel->setProperty("FrameRate", 50 , 1, 100);
-	//appModel->setProperty("Shutter", 20.0f, 1.0f, 100.0f);
-	//appModel->setProperty("Gain", 0.0f, 0.0f, 20.0f);
-
-	blurSize = 0;
-	viewWidth = appModel->getPropertyReference<float>("OutputWidth");
-	viewHeight = appModel->getPropertyReference<float>("OutputHeight");
-	maxArea = appModel->getPropertyReference<int>("MaxContourSize") * appModel->getPropertyReference<int>("MaxContourSize") * PI;
-	minArea = appModel->getPropertyReference<int>("MinContourSize") * appModel->getPropertyReference<int>("MinContourSize") * PI;
-	bUseContour = true;
-	bUseGPU = false;
-	bInvertThreshold = false;
-	bFindHoles = false;
-	bApproximateMode = true;
-	bUseScaleBySize = false;
-	smooth = 0.5f;
-	threshold = 100;
-	bUseBackground = false;
-	bUseSecondMonitor = true;
-	bShowBackground = false;
-	bUseWarp = true;
-	bShowWarp = false;
-	bUseRange = false;
-
-	//setUseTexture(appModel->getPropertyReference<bool>("ShowCamera"));
+	maxArea = appModel->getProperty<int>("MaxContourSize") * appModel->getProperty<int>("MaxContourSize") * PI;
+	minArea = appModel->getProperty<int>("MinContourSize") * appModel->getProperty<int>("MinContourSize") * PI;
+	
 	warp.setShowWarpGrid(bShowWarp);
 	offset = Scalar(threshold, threshold, threshold);
 
-	if(erodeSize != appModel->getPropertyReference<int>("Erode")){
+	if(erodeSize != appModel->getProperty<int>("Erode")){
 
-		erodeSize = appModel->getPropertyReference<int>("Erode");
+		erodeSize = appModel->getProperty<int>("Erode");
 		genTexCoordOffsets(viewWidth, viewHeight, erodeSize);
 
 		matte.begin();
@@ -295,18 +237,18 @@ void CameraController::setVariables(){
 
 	}
 	
-	if(effects[0] != (int)(appModel->getPropertyReference<bool>("UseVideo")) ||
-		fLevel != appModel->getPropertyReference<float>("fLevel") ||
-		rLevel != appModel->getPropertyReference<float>("rLevel") ||
-		gLevel != appModel->getPropertyReference<float>("gLevel") ||
-		bLevel != appModel->getPropertyReference<float>("bLevel")){
+	if(effects[0] != (int)(appModel->getProperty<bool>("UseVideo")) ||
+		fLevel != appModel->getProperty<float>("fLevel") ||
+		rLevel != appModel->getProperty<float>("rLevel") ||
+		gLevel != appModel->getProperty<float>("gLevel") ||
+		bLevel != appModel->getProperty<float>("bLevel")){
 
-		fLevel = appModel->getPropertyReference<float>("fLevel");
-		rLevel = appModel->getPropertyReference<float>("rLevel");
-		gLevel = appModel->getPropertyReference<float>("gLevel");
-		bLevel = appModel->getPropertyReference<float>("bLevel");
+		fLevel = appModel->getProperty<float>("fLevel");
+		rLevel = appModel->getProperty<float>("rLevel");
+		gLevel = appModel->getProperty<float>("gLevel");
+		bLevel = appModel->getProperty<float>("bLevel");
 
-		effects[0] = (int)(appModel->getPropertyReference<bool>("UseVideo"));
+		effects[0] = (int)(appModel->getProperty<bool>("UseVideo"));
 		
 		matte.begin();
 		matte.setUniform1iv("effects", effects, 2);
@@ -405,7 +347,7 @@ inline void CameraController::processPixels(){
 		}
 
 		// Sort contour indices, based on a separate vector of areas.
-		if (allIndices.size() > 1 && bUseScaleBySize) {
+		if (allIndices.size() > 1 && bUseSortBySize) {
 			std::sort(allIndices.begin(), allIndices.end(), CompareContourArea(allAreas));
 		}
 

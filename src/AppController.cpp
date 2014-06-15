@@ -48,51 +48,54 @@ void AppController::setup(){
      *****************************************************/
     
     appModel->load("config", ARCHIVE_BINARY);
-    appModel->removeAllProperties();
+    //appModel->removeAllProperties();
     
     //appModel->setupGui("AppModel", 1920 - 300, 0, 300, 0);
    // ofAddListener(appModel->getGui()->newGUIEvent, this, &AppController::guiEvent);
     
     //appModel->backup("config", ARCHIVE_BINARY);
 
-    appModel->setProperty("LogToFile", false);
-    appModel->setProperty("FullScreen", true);
-    appModel->setProperty("VerticalSync", false);
-	
-	//appModel->setProperty("ShowCamera", false);
-	//appModel->setProperty("ShowBackground", false);
-	//appModel->setProperty("UseContour", true);
-	//appModel->setProperty("UseGPU", false);
-	//appModel->setProperty("UseSortBySize", false);
-	//appModel->setProperty("UseBackground", false);
-	//appModel->setProperty("UseRange", false);
-	//appModel->setProperty("UseInvertThresh", false);
-	//appModel->setProperty("UseApproxMode", true);
-	//appModel->setProperty("UseFindHoles", false);
-	//appModel->setProperty("UseVideo", true);
-	//appModel->setProperty("fLevel", 1.0f, 0.0f, 1.0f);
-	//appModel->setProperty("rLevel", 1.0f, 0.0f, 1.0f);
-	//appModel->setProperty("gLevel", 1.0f, 0.0f, 1.0f);
-	//appModel->setProperty("bLevel", 1.0f, 0.0f, 1.0f);
-	//appModel->setProperty("Threshold", 100, 0, 255);
-	//appModel->setProperty("Smooth", 0.5f, 0.0f, 1.0f);
-	//appModel->setProperty("Erode", 0, 0, 100);
-	//appModel->setProperty("Blur", 0, 0, 10);
-	//appModel->setProperty("MinContourSize", 50, 0, 4000);
-	//appModel->setProperty("MaxContourSize", 2000, 0, 4000);
-	//appModel->setProperty("ShowWarp", false);
-	//appModel->setProperty("ResetWarp", false);
-	//appModel->setProperty("UseWarp", true);
-	//appModel->setProperty("FrameRate", 50 , 1, 100);
-	//appModel->setProperty("Shutter", 20.0f, 1.0f, 100.0f);
-	//appModel->setProperty("Gain", 0.0f, 0.0f, 20.0f);
+	appModel->setProperty("LogToFile", false);
+	appModel->setProperty("FullScreen", true);
+	appModel->setProperty("SecondMonitor", true);
+	appModel->setProperty("VerticalSync", false);
+	appModel->setProperty("ShowCamera", false);
+	appModel->setProperty("ShowBackground", false);
+	appModel->setProperty("UseContour", true);
+	appModel->setProperty("UseGPU", false);
+	appModel->setProperty("UseSortBySize", false);
+	appModel->setProperty("UseBackground", false);
+	appModel->setProperty("UseRange", false);
+	appModel->setProperty("UseInvertThresh", false);
+	appModel->setProperty("UseApproxMode", true);
+	appModel->setProperty("UseFindHoles", false);
+	appModel->setProperty("UseVideo", true);
+	appModel->setProperty("fLevel", 1.0f, 0.0f, 1.0f);
+	appModel->setProperty("rLevel", 1.0f, 0.0f, 1.0f);
+	appModel->setProperty("gLevel", 1.0f, 0.0f, 1.0f);
+	appModel->setProperty("bLevel", 1.0f, 0.0f, 1.0f);
+	appModel->setProperty("Threshold", 100, 0, 255);
+	appModel->setProperty("Smooth", 0.5f, 0.0f, 1.0f);
+	appModel->setProperty("Erode", 0, 0, 100);
+	appModel->setProperty("Blur", 0, 0, 10);
+	appModel->setProperty("MinContourSize", 50, 0, 4000);
+	appModel->setProperty("MaxContourSize", 2000, 0, 4000);
+	appModel->setProperty("ShowWarp", false);
+	appModel->setProperty("ResetWarp", false);
+	appModel->setProperty("UseWarp", true);
+	appModel->setProperty("FrameRate", 50 , 1, 100);
+	appModel->setProperty("Shutter", 20.0f, 1.0f, 100.0f);
+	appModel->setProperty("Gain", 0.0f, 0.0f, 20.0f);
 
-    appModel->setProperty("MediaPath", (string)"/Users/gameover/Desktop/LOTE/medianew");
+	appModel->setProperty("MediaPath", (string)"/Users/gameover/Desktop/LOTE/medianew");
     appModel->setProperty("VideoWidth", 1920.0f, 0.0f, 1920.0f);
-    appModel->setProperty("VideoHeight", 1080.0f, 0.0f, 1080.0f);
+	appModel->setProperty("VideoHeight", 1080.0f, 0.0f, 1080.0f);
     appModel->setProperty("OutputWidth", 1920.0f, 0.0f, 1920.0f);
     appModel->setProperty("OutputHeight", 1080.0f, 0.0f, 1080.0f);
-    
+
+
+
+
 	ofSetVerticalSync(appModel->getProperty<bool>("VerticalSync"));
 	ofxLogSetLogToFile(appModel->getProperty<bool>("LogToFile"), ofToDataPath("log_" + ofGetTimestampString() + ".log"));
 
@@ -126,13 +129,13 @@ void AppController::setup(){
 
 	if(appModel->hasProperty("WarpCoordinates")){ // assume we've saved a warp
 		BezierWarp& warp = cameraController->getWarp();
-		warp.allocate(	appModel->getPropertyReference<float>("VideoWidth"), 
-						appModel->getPropertyReference<float>("VideoHeight"), 
-						appModel->getPropertyReference<int>("WarpNumXPoints"),
-						appModel->getPropertyReference<int>("WarpNumYPoints"),
-						appModel->getPropertyReference<float>("WarpGridResolution") );
-		warp.setOffset(ofPoint(appModel->getPropertyReference<float>("WarpOffsetX"), appModel->getPropertyReference<float>("WarpOffsetY")));
-		warp.setControlPoints(appModel->getPropertyReference< vector<float> >("WarpCoordinates"));
+		warp.allocate(	appModel->getProperty<float>("VideoWidth"), 
+						appModel->getProperty<float>("VideoHeight"), 
+						appModel->getProperty<int>("WarpNumXPoints"),
+						appModel->getProperty<int>("WarpNumYPoints"),
+						appModel->getProperty<float>("WarpGridResolution") );
+		warp.setOffset(ofPoint(appModel->getProperty<float>("WarpOffsetX"), appModel->getProperty<float>("WarpOffsetY")));
+		warp.setControlPoints(appModel->getProperty< vector<float> >("WarpCoordinates"));
 	}
 
     /******************************************************
@@ -146,62 +149,78 @@ void AppController::setup(){
     
     //ofHideCursor();
     //ofSetFullscreen(true);
+
+		//appModel->getGui()->addListener<bool>("LogToFile", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("FullScreen", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("SecondMonitor", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("VerticalSync", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("ShowCamera", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("ShowBackground", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseContour", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseGPU", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseSortBySize", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseBackground", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseRange", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseInvertThresh", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseApproxMode", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseFindHoles", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseVideo", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener("fLevel", this, &AppController::parameterFloatEvent);
+	//appModel->getGui()->addListener<float>("rLevel", this, &AppController::parameterFloatEvent);
+	//appModel->getGui()->addListener<float>("gLevel", this, &AppController::parameterFloatEvent);
+	//appModel->getGui()->addListener<float>("bLevel", this, &AppController::parameterFloatEvent);
+	//appModel->getGui()->addListener<int>("Threshold", this, &AppController::parameterIntEvent);
+	//appModel->getGui()->addListener<float>("Smooth", this, &AppController::parameterFloatEvent);
+	//appModel->getGui()->addListener<int>("Erode", this, &AppController::parameterIntEvent);
+	//appModel->getGui()->addListener<int>("Blur", this, &AppController::parameterIntEvent);
+	//appModel->getGui()->addListener<int>("MinContourSize", this, &AppController::parameterIntEvent);
+	//appModel->getGui()->addListener<int>("MaxContourSize", this, &AppController::parameterIntEvent);
+	//appModel->getGui()->addListener<bool>("ShowWarp", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("ResetWarp", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<bool>("UseWarp", this, &AppController::parameterBoolEvent);
+	//appModel->getGui()->addListener<int>("FrameRate", this, &AppController::parameterIntEvent);
+	//appModel->getGui()->addListener<float>("Shutter", this, &AppController::parameterFloatEvent);
+	//appModel->getGui()->addListener<float>("Gain", this, &AppController::parameterFloatEvent);
+
+	FloatSlider* widget = (FloatSlider*)appModel->getGui()->getWidget("fLevel");
+	ofAddListener(widget->parameterEvent, this, &AppController::parameterFloatEvent);
+
+	appModel->addListener("rLevel", this, &AppController::parameterFloatEvent);
+
     cameraController->setVariables();
 	ofBackground(0, 0, 0);
     appControllerStates.setState(kAPPCONTROLLER_INIT);
-
+	appModel->save("config", ARCHIVE_BINARY);
 	//assert(false);
 }
 
 //--------------------------------------------------------------
-//void AppController::guiEvent(ofxUIEventArgs &e){
-//    
-//    string name = e.getName();
-//	int kind = e.getKind();
-//    
-//    switch (kind) {
-//        case OFX_UI_WIDGET_INTSLIDER_H:
-//            ofxLogVerbose() << "UI event " << name << " (i) slider: " << ((ofxUIIntSlider *)e.widget)->getValue() << endl;
-//        {
-//            if(name == "FrameRate") cameraController->setCameraFrameRate(appModel->getProperty<int>("FrameRate"));
-//        }
-//            break;
-//        case OFX_UI_WIDGET_SLIDER_H:
-//            ofxLogVerbose() << "UI event " << name << " (f) slider: " << ((ofxUISlider *)e.widget)->getValue() << endl;
-//        {
-//			 if(name == "Gain") cameraController->setCameraGain(appModel->getProperty<float>("Gain"));
-//			 if(name == "Shutter") cameraController->setCameraShutter(appModel->getProperty<float>("Shutter"));
-//            //if(name == "OutputWidth" || name == "OutputHeight") ofSetWindowShape(appModel->getProperty<float>("OutputWidth"), appModel->getProperty<float>("OutputHeight"));
-//        }
-//            break;
-//        case OFX_UI_WIDGET_TEXTINPUT:
-//            ofxLogVerbose() << "UI event " << name << " (s) string: " << ((ofxUITextInput *)e.widget)->getTextString() << " (" << ((ofxUITextInput *)e.widget)->getInputTriggerType() << ")" << endl;
-//        {
-//            
-//        }
-//            break;
-//        case OFX_UI_WIDGET_TOGGLE:
-//            ofxLogVerbose() << "UI event " << name << " (b) toggle: " << ((ofxUIToggle *)e.widget)->getValue() << endl;
-//        {
-//			//if(name == "ShowWarp") appView->getWarp<BezierWarp>().setShowWarpGrid(appModel->getProperty<bool>("ShowWarp"));
-//			if(name == "ShowCamera") cameraController->setUseTexture(appModel->getProperty<bool>("ShowCamera"));
-//            if(name == "VerticalSync") ofSetVerticalSync(appModel->getProperty<bool>("VerticalSync"));
-//            if(name == "FullScreen") setFullScreen(appModel->getProperty<bool>("FullScreen"));
-//            if(name == "LogToFile") ofxLogSetLogToFile(appModel->getProperty<bool>("LogToFile"), ofToDataPath("log_" + ofGetTimestampString() + ".log"));
-//			if(name == "ResetWarp" && appModel->getProperty<bool>("ResetWarp")){
-//				appModel->setProperty("ResetWarp", false);
-//				cameraController->getWarp().resetWarpGrid();
-//			}
-//        }
-//            
-//            break;
-//            
-//        default:
-//            ofxLogWarning() << "No such ofxUI kind" << endl;
-//            break;
-//    }
-//	cameraController->setVariables();
-//}
+void AppController::parameterIntEvent(ParameterEvent<int> &e){
+	cout << e.name << ": " << (*e.value) << endl;
+	if(e.name == "FrameRate") cameraController->setCameraFrameRate((*e.value));
+	cameraController->setVariables();
+}
+
+//--------------------------------------------------------------
+void AppController::parameterFloatEvent(ParameterEvent<float> &e){
+	cout << e.name << ": " << (*e.value) << endl;
+	if(e.name == "Gain") cameraController->setCameraGain((*e.value));
+	if(e.name == "Shutter") cameraController->setCameraShutter((*e.value));
+	cameraController->setVariables();
+}
+//--------------------------------------------------------------
+void AppController::parameterBoolEvent(ParameterEvent<bool> &e){
+	cout << e.name << ": " << (*e.value) << endl;
+	if(e.name == "ShowCamera") cameraController->setUseTexture((*e.value));
+	if(e.name == "VerticalSync") ofSetVerticalSync((*e.value));
+	if(e.name == "FullScreen") setFullScreen((*e.value));
+	if(e.name == "LogToFile") ofxLogSetLogToFile((*e.value), ofToDataPath("log_" + ofGetTimestampString() + ".log"));
+	if(e.name == "ResetWarp" && (*e.value) == true){
+		appModel->setProperty("ResetWarp", false);
+		cameraController->getWarp().resetWarpGrid();
+	}
+	cameraController->setVariables();
+}
 
 //--------------------------------------------------------------
 void AppController::update(){
@@ -213,7 +232,7 @@ void AppController::update(){
         case kAPPCONTROLLER_INIT:
         {
 			if(ofGetFrameNum() > 1){ // ensure we've started the gl context/windowing
-				setFullScreen(appModel->getPropertyReference<bool>("FullScreen"));
+				setFullScreen(appModel->getProperty<bool>("FullScreen"));
 				appControllerStates.setState(kAPPCONTROLLER_PLAY);
 			}
         }
@@ -294,7 +313,8 @@ void AppController::keyPressed(ofKeyEventArgs & e){
             cameraController->setBackground();
             break;
 		case ' ':
-            cameraController->setLatencyTest();
+			cameraController->setVariables();
+            //cameraController->setLatencyTest();
             break;
 		case 'r':
 			{

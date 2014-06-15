@@ -81,7 +81,7 @@ private:
 	bool bInvertThreshold;
 	bool bFindHoles;
 	bool bApproximateMode;
-	bool bUseScaleBySize;
+	bool bUseSortBySize;
 	bool bUseSecondMonitor;
 	bool bShowBackground;
 	bool bUseRange;
