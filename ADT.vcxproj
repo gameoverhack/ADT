@@ -210,7 +210,6 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
     <ClCompile Include="src\AppController.cpp" />
-    <ClCompile Include="src\AppView.cpp" />
     <ClCompile Include="src\CameraController.cpp" />
     <ClCompile Include="src\DebugView.cpp" />
     <ClCompile Include="src\Kalman.cpp" />
@@ -298,11 +297,14 @@
     <ClInclude Include="..\..\..\addons\ofxMSAOpenCL\src\MSAOpenCLTypes.h" />
     <ClInclude Include="..\..\..\addons\ofxMSAPingPong\src\MSAPingPong.h" />
     <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseController.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseGui.h" />
     <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseModel.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseParameter.h" />
     <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseView.h" />
     <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseWarp.h" />
     <ClInclude Include="..\..\..\addons\ofxMVC\src\BezierWarp.h" />
     <ClInclude Include="..\..\..\addons\ofxMVC\src\NoWarp.h" />
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\SerializationExports.h" />
     <ClInclude Include="..\..\..\addons\ofxMVC\src\SerializationUtils.h" />
     <ClInclude Include="..\..\..\addons\ofxMVC\src\States.h" />
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxNetwork.h" />
@@ -561,7 +563,6 @@
     <ClInclude Include="src\AppController.h" />
     <ClInclude Include="src\AppModel.h" />
     <ClInclude Include="src\AppStates.h" />
-    <ClInclude Include="src\AppView.h" />
     <ClInclude Include="src\CameraController.h" />
     <ClInclude Include="src\DebugView.h" />
     <ClInclude Include="src\FileList.h" />

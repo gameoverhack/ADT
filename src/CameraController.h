@@ -7,6 +7,7 @@
 #include <opencv2/gpu/gpu.hpp> 
 #include "BaseController.h"
 #include "AppModel.h"
+#include "BezierWarp.h"
 #include "ofxThreadedVideo.h"
 
 using namespace ofxCv;
@@ -27,6 +28,10 @@ public:
 	void setBackground();
 	void setLatencyTest();
 
+	void setColorPick(float x, float y);
+
+	BezierWarp& getWarp();
+
 	inline void processPixels();
 	inline void processTextures();
 
@@ -34,18 +39,25 @@ private:
 
 	inline void blurContour();
 
+	BezierWarp warp;
+
+	ofColor pick;
+	Scalar offset, base;
+
 	ofxThreadedVideo video;
 	ofShader matte, blurV, blurH;
 	ofFbo render0, render1;
 
 	ofTexture contourTexture;
 	ofTexture backgroundTexture;
+	ofTexture thresholdTexture;
 	ofTexture latencyTexture;
 
 	vector< vector<cv::Point> > contours, tContours;
 	vector<cv::Rect> boundingRects, tBoundingRects;
 
 	cv::Mat rPixels;
+	cv::Mat hPixels;
 	cv::Mat tPixels;
 	cv::Mat cPixels;
 	cv::Mat bPixels;
@@ -58,16 +70,23 @@ private:
 
 	int erodeSize;
 	int blurSize;
+	int effects[2];
+	float fLevel, rLevel, gLevel, bLevel;
 	float viewWidth;
 	float viewHeight;
-	float maxArea;
-	float minArea;
+	int maxArea;
+	int minArea;
 	bool bUseContour;
 	bool bUseBackground;
 	bool bInvertThreshold;
 	bool bFindHoles;
 	bool bApproximateMode;
 	bool bUseScaleBySize;
+	bool bUseSecondMonitor;
+	bool bShowBackground;
+	bool bUseRange;
+	bool bUseWarp;
+	bool bShowWarp;
 	bool bUseGPU;
 	float smooth;
 	int totalPoints;

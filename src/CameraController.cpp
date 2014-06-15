@@ -78,14 +78,22 @@ void CameraController::setup(){
 	setVariables();
 	ofxFlyCapture2::setup();
 	ofxFlyCapture2::setUseOFPixels(false);
-	ofxFlyCapture2::setUseTexture(appModel->getProperty<bool>("ShowCamera"));
+	ofxFlyCapture2::setUseTexture(appModel->getPropertyReference<bool>("ShowCamera"));
 
 	rPixels.create(viewHeight, viewWidth, CV_8U);
+	hPixels.create(viewHeight, viewWidth, CV_8U);
 	tPixels.create(viewHeight, viewWidth, CV_8U);
 	cPixels.create(viewHeight, viewWidth, CV_8U);
 	bPixels.create(viewHeight, viewWidth, CV_8U);
 
+	warp.allocate(viewWidth, viewHeight, 3, 3, 100);
+	warp.setWarpGridPosition(100, 100, viewWidth - 200, viewHeight - 200);
+
+	pick = ofColor(127, 127, 127);
+	base = Scalar(pick.r, pick.g, pick.b);
+
 	contourTexture.allocate(viewWidth, viewHeight, GL_LUMINANCE);
+	thresholdTexture.allocate(viewWidth, viewHeight, GL_LUMINANCE);
 	backgroundTexture.allocate(viewWidth, viewHeight, GL_LUMINANCE);
 	latencyTexture.allocate(viewWidth, viewHeight, GL_LUMINANCE);
 
@@ -101,6 +109,10 @@ void CameraController::setup(){
 		cv::gpu::setDevice(0);
 	}
 	
+	setCameraFrameRate(appModel->getPropertyReference<int>("FrameRate"));
+	setCameraGain(appModel->getPropertyReference<float>("Gain"));
+	setCameraShutter(appModel->getPropertyReference<float>("Shutter"));
+
 	video.setPixelFormat(OF_PIXELS_BGRA);
 	video.loadMovie(ofToDataPath("C:/Users/gameoverdrive/Desktop/FlyTest.mov"));
 	video.play();
@@ -120,10 +132,40 @@ void CameraController::draw(){
 	ofScopedLock lock(mutex);
 
 	if(bUseTexture){
-		texture.draw(320 * 0, ofGetHeight() - 240, 320, 240);
+		
 		backgroundTexture.draw(320 * 1, ofGetHeight() - 240, 320, 240);
 		contourTexture.draw(320 * 2, ofGetHeight() - 240, 320, 240);
 		video.draw(320 * 3, ofGetHeight() - 240, 320, 240);
+		if(bUseSecondMonitor){
+			texture.draw(0, 0, viewWidth, viewHeight);
+			thresholdTexture.draw(320 * 0, ofGetHeight() - 240, 320, 240);
+		}else{
+			texture.draw(320 * 0, ofGetHeight() - 240, 320, 240);
+		}
+		
+		float tW = 320 / 3.0;
+
+		ofFill();
+		ofSetColor(base[0] - offset[0], base[1] - offset[0], base[2] - offset[0]);
+		ofRect(320 * 4 + tW * 0, ofGetHeight() - 240, tW, 240);
+
+		ofSetColor(base[0], base[1], base[2]);
+		ofRect(320 * 4 + tW * 1, ofGetHeight() - 240, tW, 240);
+
+		ofSetColor(base[0] + offset[0], base[1] + offset[0], base[2] + offset[0]);
+		ofRect(320 * 4 + tW * 2, ofGetHeight() - 240, tW, 240);
+		ofNoFill();
+		ofSetColor(255, 255, 255);
+	}
+
+	
+
+	if(bUseWarp){
+		warp.begin();
+		glPushMatrix();
+	}else{
+		glPushMatrix();
+		if(bUseSecondMonitor) glTranslatef(1920.0f, 0.0f, 0.0f);
 	}
 
 	matte.begin();
@@ -131,8 +173,25 @@ void CameraController::draw(){
 	if(video.isFrameNew()) matte.setUniformTexture("videoTexture", video.getTextureReference(), 3);
 	glDrawTriangleStrip(viewWidth, viewHeight);
 	matte.end();
-	
+
+	//video.draw(0, 0, 1920, 1080);
+
 	if(bTestLatency) latencyTexture.draw(0, 0, viewWidth, viewHeight);
+	if(bShowBackground) backgroundTexture.draw(0, 0, viewWidth, viewHeight);
+
+	if(bUseWarp){
+		glPopMatrix();
+		warp.end();
+		if(bUseSecondMonitor){
+			warp.draw(viewWidth, 0, viewWidth, viewHeight);
+		}else{
+			warp.draw(0, 0, viewWidth, viewHeight);
+		}
+	}else{
+		glPopMatrix();
+	}
+
+	
 
 	appModel->setProperty("ProcessTime", (float)frameProcessTime);
 
@@ -141,30 +200,122 @@ void CameraController::draw(){
 //--------------------------------------------------------------
 void CameraController::setVariables(){
 
-	blurSize = appModel->getProperty<int>("Blur");
-	viewWidth = appModel->getProperty<float>("OutputWidth");
-	viewHeight = appModel->getProperty<float>("OutputHeight");
-	maxArea = appModel->getProperty<int>("MaxContourSize") * appModel->getProperty<int>("MaxContourSize") * PI;
-	minArea = appModel->getProperty<int>("MinContourSize") * appModel->getProperty<int>("MinContourSize") * PI;
-	bUseContour = appModel->getProperty<bool>("UseContour");
-	bUseGPU = appModel->getProperty<bool>("UseGPU");
-	bInvertThreshold = appModel->getProperty<bool>("UseInvertThresh");
-	bFindHoles = appModel->getProperty<bool>("UseFindHoles");
-	bApproximateMode = appModel->getProperty<bool>("UseApproxMode");
-	bUseScaleBySize = appModel->getProperty<bool>("UseSortBySize");
-	smooth	= appModel->getProperty<float>("Smooth");
-	totalPoints = appModel->getProperty<int>("Points");
-	threshold = appModel->getProperty<int>("Threshold");
-	bUseBackground = appModel->getProperty<bool>("UseBackground");
+	appModel->setProperty("UseVideo", true);
+	appModel->setProperty("ResetWarp", false);
+	appModel->setProperty("FrameRate", 50 , 1, 100);
+	appModel->setProperty("Shutter", 20.0f, 1.0f, 100.0f);
+	appModel->setProperty("Gain", 0.0f, 0.0f, 20.0f);
+	appModel->setProperty("MinContourSize", 50, 0, 3000);
+	appModel->setProperty("MaxContourSize", 2000, 0, 3000);
+
+	appModel->setProperty("SecondMonitor", &bUseSecondMonitor);
+	appModel->setProperty("ShowCamera", &bUseTexture);
+	appModel->setProperty("ShowBackground", &bUseBackground);
+	appModel->setProperty("UseContour", &bUseContour);
+	appModel->setProperty("UseGPU", &bUseGPU);
+	appModel->setProperty("UseSortBySize", &bUseGPU);
+	appModel->setProperty("UseBackground", &bUseBackground);
+	appModel->setProperty("UseRange", &bUseRange);
+	appModel->setProperty("UseInvertThresh", &bInvertThreshold);
+	appModel->setProperty("UseApproxMode", &bApproximateMode);
+	appModel->setProperty("UseFindHoles", &bFindHoles);
 	
-	if(erodeSize != appModel->getProperty<int>("Erode")){
-		erodeSize = appModel->getProperty<int>("Erode");
+	appModel->setProperty("fLevel", &fLevel, 0.0f, 1.0f);
+	appModel->setProperty("rLevel", &rLevel, 0.0f, 1.0f);
+	appModel->setProperty("gLevel", &gLevel, 0.0f, 1.0f);
+	appModel->setProperty("bLevel", &bLevel, 0.0f, 1.0f);
+	appModel->setProperty("Threshold", &threshold, 0, 255);
+	appModel->setProperty("Smooth", &smooth, 0.0f, 1.0f);
+	appModel->setProperty("Erode", &erodeSize, 0, 100);
+	appModel->setProperty("Blur", &blurSize, 0, 10);
+
+	appModel->setProperty("ShowWarp", &bShowWarp);
+	appModel->setProperty("UseWarp", &bUseWarp);
+
+	//appModel->setProperty("ShowCamera", false);
+	//appModel->setProperty("ShowBackground", false);
+	//appModel->setProperty("UseContour", true);
+	//appModel->setProperty("UseGPU", false);
+	//appModel->setProperty("UseSortBySize", false);
+	//appModel->setProperty("UseBackground", false);
+	//appModel->setProperty("UseRange", false);
+	//appModel->setProperty("UseInvertThresh", false);
+	//appModel->setProperty("UseApproxMode", true);
+	//appModel->setProperty("UseFindHoles", false);
+	//appModel->setProperty("UseVideo", true);
+	//appModel->setProperty("fLevel", 1.0f, 0.0f, 1.0f);
+	//appModel->setProperty("rLevel", 1.0f, 0.0f, 1.0f);
+	//appModel->setProperty("gLevel", 1.0f, 0.0f, 1.0f);
+	//appModel->setProperty("bLevel", 1.0f, 0.0f, 1.0f);
+	//appModel->setProperty("Threshold", 100, 0, 255);
+	//appModel->setProperty("Smooth", 0.5f, 0.0f, 1.0f);
+	//appModel->setProperty("Erode", 0, 0, 100);
+	//appModel->setProperty("Blur", 0, 0, 10);
+	//appModel->setProperty("MinContourSize", 50, 0, 4000);
+	//appModel->setProperty("MaxContourSize", 2000, 0, 4000);
+	//appModel->setProperty("ShowWarp", false);
+	//appModel->setProperty("ResetWarp", false);
+	//appModel->setProperty("UseWarp", true);
+	//appModel->setProperty("FrameRate", 50 , 1, 100);
+	//appModel->setProperty("Shutter", 20.0f, 1.0f, 100.0f);
+	//appModel->setProperty("Gain", 0.0f, 0.0f, 20.0f);
+
+	blurSize = 0;
+	viewWidth = appModel->getPropertyReference<float>("OutputWidth");
+	viewHeight = appModel->getPropertyReference<float>("OutputHeight");
+	maxArea = appModel->getPropertyReference<int>("MaxContourSize") * appModel->getPropertyReference<int>("MaxContourSize") * PI;
+	minArea = appModel->getPropertyReference<int>("MinContourSize") * appModel->getPropertyReference<int>("MinContourSize") * PI;
+	bUseContour = true;
+	bUseGPU = false;
+	bInvertThreshold = false;
+	bFindHoles = false;
+	bApproximateMode = true;
+	bUseScaleBySize = false;
+	smooth = 0.5f;
+	threshold = 100;
+	bUseBackground = false;
+	bUseSecondMonitor = true;
+	bShowBackground = false;
+	bUseWarp = true;
+	bShowWarp = false;
+	bUseRange = false;
+
+	//setUseTexture(appModel->getPropertyReference<bool>("ShowCamera"));
+	warp.setShowWarpGrid(bShowWarp);
+	offset = Scalar(threshold, threshold, threshold);
+
+	if(erodeSize != appModel->getPropertyReference<int>("Erode")){
+
+		erodeSize = appModel->getPropertyReference<int>("Erode");
 		genTexCoordOffsets(viewWidth, viewHeight, erodeSize);
+
 		matte.begin();
 		matte.setUniform2fv("tcOffset", texCoordOffsets, 25);
 		matte.end();
+
 	}
 	
+	if(effects[0] != (int)(appModel->getPropertyReference<bool>("UseVideo")) ||
+		fLevel != appModel->getPropertyReference<float>("fLevel") ||
+		rLevel != appModel->getPropertyReference<float>("rLevel") ||
+		gLevel != appModel->getPropertyReference<float>("gLevel") ||
+		bLevel != appModel->getPropertyReference<float>("bLevel")){
+
+		fLevel = appModel->getPropertyReference<float>("fLevel");
+		rLevel = appModel->getPropertyReference<float>("rLevel");
+		gLevel = appModel->getPropertyReference<float>("gLevel");
+		bLevel = appModel->getPropertyReference<float>("bLevel");
+
+		effects[0] = (int)(appModel->getPropertyReference<bool>("UseVideo"));
+		
+		matte.begin();
+		matte.setUniform1iv("effects", effects, 2);
+		matte.setUniform1f("fLevel", fLevel);
+		matte.setUniform1f("rLevel", rLevel);
+		matte.setUniform1f("bLevel", bLevel);
+		matte.setUniform1f("gLevel", gLevel);
+		matte.end();
+	}
 }
 
 //--------------------------------------------------------------
@@ -184,6 +335,19 @@ void CameraController::setLatencyTest(){
 	pixels.setFromPixels(rawImage.GetData(), rawImage.GetCols(), rawImage.GetRows(), OF_IMAGE_GRAYSCALE);
 	latencyPixel = pixels.getColor(viewWidth / 2, viewHeight / 2);
 	bTestLatency = true;
+}
+
+//--------------------------------------------------------------
+void CameraController::setColorPick(float x, float y){
+	ofScopedLock lock(mutex);
+	pixels.setFromPixels(rawImage.GetData(), rawImage.GetCols(), rawImage.GetRows(), OF_IMAGE_GRAYSCALE);
+	pick = pixels.getColor(x, y);
+	base = Scalar(pick.r, pick.g, pick.b);
+}
+
+//--------------------------------------------------------------
+BezierWarp& CameraController::getWarp(){
+	return warp;
 }
 
 //--------------------------------------------------------------
@@ -213,11 +377,16 @@ inline void CameraController::processPixels(){
 			cv::absdiff(rPixels, bPixels, rPixels);
 		}
 
-		int thresholdType = bInvertThreshold ? THRESH_BINARY_INV : THRESH_BINARY;
-		float maxVal = numeric_limits<uint8_t>::max();
+		if(bUseRange){
+			cv::inRange(rPixels, base - offset, base + offset, tPixels);
+		}else{
+			int thresholdType = bInvertThreshold ? THRESH_BINARY_INV : THRESH_BINARY;
+			float maxVal = numeric_limits<uint8_t>::max();
+			cv::threshold(rPixels, tPixels, threshold, maxVal, thresholdType);
+		}
 		
-		cv::threshold(rPixels, tPixels, threshold, maxVal, thresholdType);
-		
+		if(bUseTexture) tPixels.copyTo(hPixels);
+
 		CvContourRetrievalMode contourFindingMode = (bFindHoles) ? CV_RETR_LIST : CV_RETR_EXTERNAL;
 		int simplifyMode = bApproximateMode ? CV_CHAIN_APPROX_SIMPLE : CV_CHAIN_APPROX_NONE;
 
@@ -277,7 +446,7 @@ inline void CameraController::processPixels(){
 inline void CameraController::processTextures(){
 
 	contourTexture.loadData(tPixels.data, tPixels.cols, tPixels.rows, GL_LUMINANCE);
-
+	if(bUseTexture) thresholdTexture.loadData(hPixels.data, hPixels.cols, hPixels.rows, GL_LUMINANCE);
 	if(blurSize > 0) blurContour();
 }
 

@@ -370,9 +370,6 @@
     <ClCompile Include="src\AppController.cpp">
       <Filter>src\controllers</Filter>
     </ClCompile>
-    <ClCompile Include="src\AppView.cpp">
-      <Filter>src\views</Filter>
-    </ClCompile>
     <ClCompile Include="src\DebugView.cpp">
       <Filter>src\views</Filter>
     </ClCompile>
@@ -1700,14 +1697,20 @@
     <ClInclude Include="src\AppController.h">
       <Filter>src\controllers</Filter>
     </ClInclude>
-    <ClInclude Include="src\AppView.h">
-      <Filter>src\views</Filter>
-    </ClInclude>
     <ClInclude Include="src\DebugView.h">
       <Filter>src\views</Filter>
     </ClInclude>
     <ClInclude Include="src\CameraController.h">
       <Filter>src\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseGui.h">
+      <Filter>addons\ofxMVC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\BaseParameter.h">
+      <Filter>addons\ofxMVC\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxMVC\src\SerializationExports.h">
+      <Filter>addons\ofxMVC\src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

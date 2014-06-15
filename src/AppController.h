@@ -12,7 +12,6 @@
 #include "BaseController.h"
 #include "CameraController.h"
 #include "AppModel.h"
-#include "AppView.h"
 #include "DebugView.h"
 
 class AppController : public BaseController{
@@ -37,14 +36,15 @@ public:
     void mousePressed(ofMouseEventArgs & e);
     void mouseReleased(ofMouseEventArgs & e);
     
-    void guiEvent(ofxUIEventArgs &e);
+    //void guiEvent(ofxUIEventArgs &e);
     
 protected:
     
+	void setFullScreen(bool b);
+
     ofPoint mouseHit;
     //KeyModifiers keyModifiers;
     
-    AppView * appView;
     DebugView * debugView;
 	CameraController * cameraController;
     
