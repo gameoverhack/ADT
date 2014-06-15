@@ -8,6 +8,26 @@
 
 #include "AppController.h"
 
+class Cunt{
+public:
+	Cunt(){
+			
+		for(int i = 0; i < 1000; i++){
+			somecrap.push_back(ofRandom(1000));
+		}
+	}
+
+	vector<int> somecrap;
+	
+
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version){
+        ar & BOOST_SERIALIZATION_NVP(somecrap);
+
+	}
+};
+
 //--------------------------------------------------------------
 AppController::AppController(){
     ofxLogNotice() << "Creating AppController" << endl;
@@ -46,7 +66,17 @@ void AppController::setup(){
     /******************************************************
      *******                Config                  *******
      *****************************************************/
-    
+	Cunt c, d;
+
+	cout << c.somecrap[20] << endl;
+
+	Serializer.saveClass(ofToDataPath("test"), c, ARCHIVE_BINARY);
+	Serializer.loadClass(ofToDataPath("test"), d, ARCHIVE_BINARY);
+
+	cout << d.somecrap[20] << endl;
+
+
+
     appModel->load("config", ARCHIVE_BINARY);
     //appModel->removeAllProperties();
     
@@ -55,7 +85,7 @@ void AppController::setup(){
     
     //appModel->backup("config", ARCHIVE_BINARY);
 
-	appModel->setProperty("LogToFile", false);
+	/*appModel->setProperty("LogToFile", false);
 	appModel->setProperty("FullScreen", true);
 	appModel->setProperty("SecondMonitor", true);
 	appModel->setProperty("VerticalSync", false);
@@ -91,7 +121,7 @@ void AppController::setup(){
     appModel->setProperty("VideoWidth", 1920.0f, 0.0f, 1920.0f);
 	appModel->setProperty("VideoHeight", 1080.0f, 0.0f, 1080.0f);
     appModel->setProperty("OutputWidth", 1920.0f, 0.0f, 1920.0f);
-    appModel->setProperty("OutputHeight", 1080.0f, 0.0f, 1080.0f);
+    appModel->setProperty("OutputHeight", 1080.0f, 0.0f, 1080.0f);*/
 
 
 
@@ -150,47 +180,42 @@ void AppController::setup(){
     //ofHideCursor();
     //ofSetFullscreen(true);
 
-		//appModel->getGui()->addListener<bool>("LogToFile", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("FullScreen", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("SecondMonitor", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("VerticalSync", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("ShowCamera", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("ShowBackground", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseContour", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseGPU", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseSortBySize", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseBackground", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseRange", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseInvertThresh", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseApproxMode", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseFindHoles", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseVideo", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener("fLevel", this, &AppController::parameterFloatEvent);
-	//appModel->getGui()->addListener<float>("rLevel", this, &AppController::parameterFloatEvent);
-	//appModel->getGui()->addListener<float>("gLevel", this, &AppController::parameterFloatEvent);
-	//appModel->getGui()->addListener<float>("bLevel", this, &AppController::parameterFloatEvent);
-	//appModel->getGui()->addListener<int>("Threshold", this, &AppController::parameterIntEvent);
-	//appModel->getGui()->addListener<float>("Smooth", this, &AppController::parameterFloatEvent);
-	//appModel->getGui()->addListener<int>("Erode", this, &AppController::parameterIntEvent);
-	//appModel->getGui()->addListener<int>("Blur", this, &AppController::parameterIntEvent);
-	//appModel->getGui()->addListener<int>("MinContourSize", this, &AppController::parameterIntEvent);
-	//appModel->getGui()->addListener<int>("MaxContourSize", this, &AppController::parameterIntEvent);
-	//appModel->getGui()->addListener<bool>("ShowWarp", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("ResetWarp", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<bool>("UseWarp", this, &AppController::parameterBoolEvent);
-	//appModel->getGui()->addListener<int>("FrameRate", this, &AppController::parameterIntEvent);
-	//appModel->getGui()->addListener<float>("Shutter", this, &AppController::parameterFloatEvent);
-	//appModel->getGui()->addListener<float>("Gain", this, &AppController::parameterFloatEvent);
-
-	FloatSlider* widget = (FloatSlider*)appModel->getGui()->getWidget("fLevel");
-	ofAddListener(widget->parameterEvent, this, &AppController::parameterFloatEvent);
-
-	appModel->addListener("rLevel", this, &AppController::parameterFloatEvent);
+	//appModel->addListener<Toggle>("LogToFile", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("FullScreen", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("SecondMonitor", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("VerticalSync", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("ShowCamera", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("ShowBackground", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseContour", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseGPU", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseSortBySize", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseBackground", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseRange", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseInvertThresh", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseApproxMode", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseFindHoles", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseVideo", this, &AppController::parameterBoolEvent);
+	appModel->addListener<FloatSlider>("fLevel", this, &AppController::parameterFloatEvent);
+	appModel->addListener<FloatSlider>("rLevel", this, &AppController::parameterFloatEvent);
+	appModel->addListener<FloatSlider>("gLevel", this, &AppController::parameterFloatEvent);
+	appModel->addListener<FloatSlider>("bLevel", this, &AppController::parameterFloatEvent);
+	appModel->addListener<IntSlider>("Threshold", this, &AppController::parameterIntEvent);
+	appModel->addListener<FloatSlider>("Smooth", this, &AppController::parameterFloatEvent);
+	appModel->addListener<IntSlider>("Erode", this, &AppController::parameterIntEvent);
+	appModel->addListener<IntSlider>("Blur", this, &AppController::parameterIntEvent);
+	appModel->addListener<IntSlider>("MinContourSize", this, &AppController::parameterIntEvent);
+	appModel->addListener<IntSlider>("MaxContourSize", this, &AppController::parameterIntEvent);
+	appModel->addListener<Toggle>("ShowWarp", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("ResetWarp", this, &AppController::parameterBoolEvent);
+	appModel->addListener<Toggle>("UseWarp", this, &AppController::parameterBoolEvent);
+	appModel->addListener<IntSlider>("FrameRate", this, &AppController::parameterIntEvent);
+	appModel->addListener<FloatSlider>("Shutter", this, &AppController::parameterFloatEvent);
+	appModel->addListener<FloatSlider>("Gain", this, &AppController::parameterFloatEvent);
 
     cameraController->setVariables();
 	ofBackground(0, 0, 0);
     appControllerStates.setState(kAPPCONTROLLER_INIT);
-	appModel->save("config", ARCHIVE_BINARY);
+
 	//assert(false);
 }
 
